@@ -9,47 +9,49 @@ const JobTitle = () => {
         <div className="w-auto">
             <h1 className='border-2 border-gray-500 rounded m-2 p-2 inline-block font-Poppins'>Add Department</h1>
             <div className="flex p-4">
-                <div className="w-1/3 bg-white p-3 mx-4 rounded h-[200px]">
-                    <form className="flex-col font-Poppins">
-                        <div className="mb-5">
-                            <label htmlFor="department" className='font-Poppins'> Department:
-                                <select className='font-Poppins bg-transparen border-b-4 w-[100%] p-1 my-2' name="department">
-                                    <option value="IT">Apple</option>
-                                    <option value="Management">Microsoft</option>
-                                    <option value="Account">Google</option>
-                                </select>
-                            </label>
+                <div className="w-1/3 bg-white p-3 mx-4 rounded h-[250px]">
+                    <form className="font-Poppins">
+                        <div className="mb-3">
+                            <label htmlFor="department" className='font-Poppins form-label mb-2'> Department: </label>
+                            <select className='font-Poppins form-select' name="department">
+                                <option value="IT">Apple</option>
+                                <option value="Management">Microsoft</option>
+                                <option value="Account">Google</option>
+                            </select>
                         </div>
-                        <div className="mb-8">
-                            <label htmlFor="department" className='font-Poppins'>
-                                Job Title: <span className="text-gray-400 font-Poppins">eg:CEO</span><br />
-                                <input name="myInput" placeholder="Enter job title" className="p-1 border-b-2 bg-transparent my-2 w-full" />
-                            </label>
+                        <div className="mb-3">
+                            <label htmlFor="department" className='font-Poppins form-label mb-2'>
+                                Job Title: <span className="text-gray-400 font-Poppins">eg:CEO</span><br /></label>
+                            <input name="myInput" placeholder="Enter job title" className="p-1 form-control" />
+
                         </div>
-                        <button type="submit" className="border-gray-100 border-2 p-3 font-Poppins rounded float-right bg-green-500 hover:bg-green-300 ease-in delay-300">Submit</button>
+                        <div className="text-end">
+                            <input type="submit" value="Submit" className='font-Poppins btn btn-success bg-slate-700' />
+                        </div>
+
                     </form>
                 </div>
                 <div className="w-2/3 bg-white rounded p-4 relative h-[400px]">
-                    <div className="search float-right">
+                    <div className="search">
                         <form action={search}>
-                            <input name="myInput" placeholder="Search" className="my-1 p-1 border-b-2 font-Poppins border-s-2 w-[80%] bg-transparent" />
-                            <button type="submit" className="border-gray-100 border-2 font-Poppins p-2 rounded  bg-green-500 hover:bg-green-300 ease-in delay-300">Search</button>
+                            <input name="myInput" placeholder="Search" className="my-1 form-control p-1" />
+                            {/* <button type="submit" className="border-gray-100 border-2 font-Poppins p-2 rounded  bg-green-500 hover:bg-green-300 ease-in delay-300">Search</button> */}
+                            <div className="text-end">
+                                <input type="submit" value="Search" className='font-Poppins btn btn-success bg-slate-700 ' />
+                            </div>
+                            <div className="content mt-3">
+                                <h3>Job Title</h3>
+                                <ul className="list-group list-group-flush">
+                                    <li className="list-group-item">An item</li>
+                                    <li className="list-group-item">A second item</li>
+                                    <li className="list-group-item">A third item</li>
+                                    <li className="list-group-item">A fourth item</li>
+                                    <li className="list-group-item">And a fifth one</li>
+                                </ul>
+                            </div>
                         </form>
                     </div>
-                    <div className="content mt-10">
-                        <h3>Department</h3>
-                        <hr />
-                        <ul>
-                            <li>Accounting</li>
-                            <hr />
-                            <li>Managment</li>
-                            <hr />
-                            <li>Development</li>
-                            <hr />
-                            <li>Executive</li>
-                            <hr />
-                        </ul>
-                    </div>
+
                 </div>
             </div>
         </div>

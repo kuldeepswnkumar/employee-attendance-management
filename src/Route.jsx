@@ -14,6 +14,8 @@ import JobTitle from './components/Navigation/QuickAccess/JobTitle'
 import Clock from './components/Navigation/QuickAccess/Clock'
 import Login from './components/Registration/Login'
 import Registration from './components/Registration/Registration'
+import ForgetPass from './components/Registration/ForgetPass'
+import EmployeeAdd from './components/Employee/EmployeeAdd'
 
 
 
@@ -80,6 +82,14 @@ const router = createBrowserRouter([
     {
         path: '/registration',
         element: <Registration />
+    },
+    {
+        path: '/forget',
+        element: <ForgetPass />
+    },
+    {
+        path: '/addemployee',
+        element: <EmployeeAdd />
     }
 
 ])
