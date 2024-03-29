@@ -61,9 +61,6 @@ function Navbar() {
                         <li className="bg-gray-200 hover:bg-gray-400 py-3 px-4 cursor-pointer">
                             <Link to="/jobtitle">Job Title</Link>
                         </li>
-                        <li className="bg-gray-200 hover:bg-gray-400 py-3 px-4 cursor-pointer">
-                            <Link to="/clock">Clock In/Out</Link>
-                        </li>
                     </ul>
                 </div>
 

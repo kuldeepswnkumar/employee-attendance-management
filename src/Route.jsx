@@ -11,11 +11,14 @@ import Setting from './components/Setting/Setting'
 import Company from './components/Navigation/QuickAccess/Company'
 import Department from './components/Navigation/QuickAccess/Department'
 import JobTitle from './components/Navigation/QuickAccess/JobTitle'
-import Clock from './components/Navigation/QuickAccess/Clock'
 import Login from './components/Registration/Login'
 import Registration from './components/Registration/Registration'
 import ForgetPass from './components/Registration/ForgetPass'
 import EmployeeAdd from './components/Employee/EmployeeAdd'
+import Clock from './components/Clock/Clock'
+import EmployeeView from './components/Employee/EmployeeView'
+import EditAttendance from './components/Attendance/EditAttendance'
+import ScheduleAdd from './components/Schedules/ScheduleAdd'
 
 
 
@@ -25,6 +28,10 @@ const router = createBrowserRouter([
         path: '/',
         element: <Layout />,
         children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard />
+            },
             {
                 path: '',
                 element: <Dashboard />
@@ -70,10 +77,15 @@ const router = createBrowserRouter([
                 element: <JobTitle />
             },
             {
-                path: '/clock',
-                element: <Clock />
-            }
+                path: '/editattendance',
+                element: <EditAttendance />
+            },
+
         ],
+    },
+    {
+        path: '/clock',
+        element: <Clock />
     },
     {
         path: '/login',
@@ -90,6 +102,14 @@ const router = createBrowserRouter([
     {
         path: '/addemployee',
         element: <EmployeeAdd />
+    },
+    {
+        path: '/employeeview',
+        element: <EmployeeView />
+    },
+    {
+        path: '/scheduleadd',
+        element: <ScheduleAdd />
     }
 
 ])

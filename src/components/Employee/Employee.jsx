@@ -2,14 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { faAddressCard, faPenToSquare, faTrash, faFilePdf } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ButtonReturn from '../Button/Button'
 
 function Employee() {
     return (
         <div>
-            <div className="m-3 text-end">
+            <h1 className='border-2 border-gray-500 rounded m-3 p-2 inline-block font-Poppins uppercase'>Employees</h1>
+            <div className="flex float-end m-4">
+                <ButtonReturn />
                 <Link to="/addemployee">
                     <input type="button" value="Add Employee" className='font-Poppins btn btn-success bg-slate-700' />
                 </Link>
+
             </div>
             <div className="emplist p-3">
                 <table className="table">
