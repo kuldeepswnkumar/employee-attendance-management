@@ -1,4 +1,8 @@
 import React from 'react'
+import ButtonReturn from '../../Button/Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { Link } from 'react-router-dom'
+import { faPenToSquare, faTrash, } from '@fortawesome/free-solid-svg-icons'
 
 function MyAttendance() {
     return (
@@ -68,8 +72,7 @@ function MyAttendance() {
                 </div>
             </div >
         </div>
-    </div >
-  )
+    )
 }
 
 export default MyAttendance

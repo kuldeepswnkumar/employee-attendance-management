@@ -23,6 +23,9 @@ import EmployeeLogin from './components/Registration/EmployeeLogin'
 import EmpRegistration from './components/Registration/EmpRegistration'
 import EmpDashboard from './components/EmployeeDashboard/EmpDashboard'
 import EmpDash from './components/EmployeeDashboard/Sidebar/EmpDash'
+import MyAttendance from './components/EmployeeDashboard/Sidebar/MyAttendance'
+import MyLeave from './components/EmployeeDashboard/Sidebar/MyLeave'
+import MySchedules from './components/EmployeeDashboard/Sidebar/MySchedules'
 
 
 
@@ -122,16 +125,27 @@ const router = createBrowserRouter([
         path: '/empregistration',
         element: <EmpRegistration />
     },
-
     {
         path: '/empdashboard',
         element: <EmpDashboard />,
-        // children: [
-        //     {
-        //         path: '/empdash',
-        //         element: <EmpDash />
-        //     },
-        // ]
+        children: [
+            {
+                path: '/empdashboard/empdash',
+                element: <EmpDash />
+            },
+            {
+                path: '/empdashboard/myattendance',
+                element: <MyAttendance />
+            },
+            {
+                path: '/empdashboard/myleave',
+                element: <MyLeave />
+            },
+            {
+                path: '/empdashboard/myschedules',
+                element: <MySchedules />
+            },
+        ]
     }
 ])
 

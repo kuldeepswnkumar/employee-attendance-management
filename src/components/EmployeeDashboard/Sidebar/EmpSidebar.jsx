@@ -15,7 +15,7 @@ function EmpSidebar() {
             <div className="side-bar">
                 <ul>
                     <li className='my-6 font-Poppins hover:underline'><FontAwesomeIcon icon={faDashboard} className='mx-4' /><NavLink
-                        to="/dashboard"
+                        to="/empdashboard/empdash"
                         className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "active" : ""
                         }
@@ -23,7 +23,7 @@ function EmpSidebar() {
                         DASHBOARD
                     </NavLink></li>
                     <li className='my-6 font-Poppins hover:underline'><FontAwesomeIcon icon={faUserFriends} className='mx-4' /><NavLink
-                        to="/employes"
+                        to="/empdashboard/myAttendance"
                         className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "active" : ""
                         }
@@ -31,20 +31,20 @@ function EmpSidebar() {
                         MY ATTENDANCES
                     </NavLink></li>
                     <li className='my-6 font-Poppins hover:underline'><FontAwesomeIcon icon={faClipboard} className='mx-4' /><NavLink
-                        to="/attendance"
+                        to="/empdashboard/myleave"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "active" : ""
+                        }
+                    >
+                        MY LEAVES
+                    </NavLink></li>
+                    <li className='my-6 font-Poppins hover:underline'><FontAwesomeIcon icon={faCalendarDay} className='mx-4' /><NavLink
+                        to="/empdashboard/myschedules"
                         className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "active" : ""
                         }
                     >
                         MY SCHEDULES
-                    </NavLink></li>
-                    <li className='my-6 font-Poppins hover:underline'><FontAwesomeIcon icon={faCalendarDay} className='mx-4' /><NavLink
-                        to="/schedules"
-                        className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "active" : ""
-                        }
-                    >
-                        MY LEAVE
                     </NavLink></li>
 
                 </ul>
