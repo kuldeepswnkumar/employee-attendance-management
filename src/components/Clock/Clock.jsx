@@ -24,7 +24,7 @@ const Clock = () => {
         <>
             <div className='w-screen h-screen bg-slate-800'>
                 <Navigator />
-                <form action="" className='flex justify-evenly mt-32 text-center'>
+                <form action="" className='flex justify-evenly mt-32 ml-20 text-center'>
                     <div className="top mt-32">
                         <select className="form-select">
                             <option selected>Choose...</option>

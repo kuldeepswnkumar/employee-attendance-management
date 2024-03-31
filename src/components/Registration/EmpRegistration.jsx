@@ -1,9 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-
-
-
-const Registration = () => {
+function EmpRegistration() {
     const [errForm, setErrForm] = useState({})
     const [regForm, setRegForm] = useState({
         empId: '',
@@ -66,8 +63,6 @@ const Registration = () => {
         const isValid = handleValidForm()
         console.log(isValid);
     }
-
-
     return (
         <div>
             <div className='w-screen h-screen bg-gradient-to-r bg-[#b0efff] flex'>
@@ -141,4 +136,4 @@ const Registration = () => {
     )
 }
 
-export default Registration     
+export default EmpRegistration

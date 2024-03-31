@@ -19,7 +19,10 @@ import Clock from './components/Clock/Clock'
 import EmployeeView from './components/Employee/EmployeeView'
 import EditAttendance from './components/Attendance/EditAttendance'
 import ScheduleAdd from './components/Schedules/ScheduleAdd'
-
+import EmployeeLogin from './components/Registration/EmployeeLogin'
+import EmpRegistration from './components/Registration/EmpRegistration'
+import EmpDashboard from './components/EmployeeDashboard/EmpDashboard'
+import EmpDash from './components/EmployeeDashboard/Sidebar/EmpDash'
 
 
 
@@ -110,8 +113,26 @@ const router = createBrowserRouter([
     {
         path: '/scheduleadd',
         element: <ScheduleAdd />
-    }
+    },
+    {
+        path: '/emplogin',
+        element: <EmployeeLogin />
+    },
+    {
+        path: '/empregistration',
+        element: <EmpRegistration />
+    },
 
+    {
+        path: '/empdashboard',
+        element: <EmpDashboard />,
+        // children: [
+        //     {
+        //         path: '/empdash',
+        //         element: <EmpDash />
+        //     },
+        // ]
+    }
 ])
 
 const Route = () => {

@@ -1,8 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFlag, faChevronDown, faChevronUp, faCircleArrowRight, faUser } from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react'
 function User() {
-    const [user, setUser] = useState(false)
+
     return (
         <div className="right-part p-1.5 mx-2 relative">
 

@@ -39,7 +39,9 @@ function Employee() {
                             <td>CEO</td>
                             <td>Active</td>
                             <td>
-                                <FontAwesomeIcon icon={faAddressCard} className='text-xl' /><input type="button" value="" className='m-1 ' />
+                                <Link to='/employeeview'>
+                                    <FontAwesomeIcon icon={faAddressCard} className='text-xl' /><input type="button" value="" className='m-1 ' />
+                                </Link>
                                 <FontAwesomeIcon icon={faFilePdf} className='text-xl' /><input type="button" value="" className='m-1' />
                                 <FontAwesomeIcon icon={faPenToSquare} className='text-xl' /><input type="button" value="" className='m-1' />
                                 <FontAwesomeIcon icon={faTrash} className='text-xl' /><input type="button" value="" className='m-1' />

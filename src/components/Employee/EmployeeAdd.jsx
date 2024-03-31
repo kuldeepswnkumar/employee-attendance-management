@@ -1,4 +1,5 @@
 import { useState } from "react"
+import ButtonReturn from "../Button/Button";
 
 
 const EmployeeAdd = () => {
@@ -111,7 +112,8 @@ const EmployeeAdd = () => {
     return (
         <div>
             <h1 className='text-center font-Poppins font-bold text-2xl p-2 border-gray-950 bg-green-500'>Add Employee</h1>
-            <div className=' p-3'>
+            <div className='p-3 w-[80%] m-auto'>
+                <ButtonReturn />
                 <div className="registration m-auto items-center border-gray-500 bg-lime-50 p-3">
                     <form autoComplete='off' className="flex" onSubmit={handleSubmit}>
                         <div className="left w-1/2 mr-4 ">

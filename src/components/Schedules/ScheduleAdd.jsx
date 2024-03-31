@@ -5,7 +5,7 @@ function ScheduleAdd() {
     return (
         <div>
             <h1 className='text-center font-Poppins font-bold text-2xl p-2 border-gray-950 bg-green-500'>Add Employee Schedule</h1>
-            <div className="w-auto">
+            <div className="w-[80%] m-auto">
                 <h1 className='border-2 border-gray-500 rounded m-2 p-2 inline-block font-Poppins'>Add Schedule</h1>
                 <ButtonReturn />
                 <div className="p-1">
@@ -18,59 +18,64 @@ function ScheduleAdd() {
                                     <div className="text-red-700"></div>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="name" className='mb-1 font-Poppins'>Join Date </label>
-                                    <input type="date" name='date' value="" className='font-Poppins form-control' />
+                                    <label htmlFor="date" className='mb-1 font-Poppins'>Join Date </label>
+                                    <input type="date" name='jdate' value="" className='font-Poppins form-control' />
                                     <div className="text-red-700"></div>
                                 </div>
                             </div>
                             <div className="mb-3 row">
                                 <div className="col">
-                                    <label htmlFor="department" className='font-Poppins form-label mb-2'>
+                                    <label htmlFor="stime" className='font-Poppins form-label mb-2'>
                                         Start Time:</label>
-                                    <input type='text' name="myInput" placeholder="Enter Company Name" className="p-1 form-control" />
+                                    <input type='text' name="stime" placeholder="Enter Start Time" className="p-1 form-control" />
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="department" className='font-Poppins form-label mb-2'>
+                                    <label htmlFor="otime" className='font-Poppins form-label mb-2'>
                                         Off Time:</label>
-                                    <input type='text' name="myInput" placeholder="Enter Company Name" className="p-1 form-control" />
+                                    <input type='text' name="otime" placeholder="Enter Off Time" className="p-1 form-control" />
                                 </div>
                             </div>
                             <div className="mb-2 ">
-                                <label htmlFor="address" className='font-Poppins form-label mb-1'> Reason: </label>
-                                <textarea name="address" cols="20" rows="2" className='font-Poppins form-control'></textarea>
+                                <label htmlFor="reason" className='font-Poppins form-label mb-1'> Reason: </label>
+                                <textarea name="reason" cols="20" rows="2" className='font-Poppins form-control'></textarea>
                                 <div className="text-red-700"></div>
                             </div>
                             <div className="mb-2 row">
                                 <div className="col">
-                                    <label htmlFor="department" className='font-Poppins form-label mb-2'>
+                                    <label htmlFor="hour" className='font-Poppins form-label mb-2'>
                                         Hours:</label>
-                                    <input type='text' name="myInput" placeholder="Enter Company Name" className="p-1 form-control" />
+                                    <input type='text' name="hours" placeholder="Enter Hours" className="p-1 form-control" />
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="department" className='font-Poppins form-label mb-2'>
+                                    <label htmlFor="rdays" className='font-Poppins form-label mb-2'>
                                         Rest Days:</label>
-                                    <input type='text' name="myInput" placeholder="Enter Company Name" className="p-1 form-control" />
+                                    <input type='text' name="rdays" placeholder="Enter Rest Days" className="p-1 form-control" />
                                 </div>
                             </div>
                             <div className="mb-2 row">
                                 <div className="col">
-                                    <label htmlFor="department" className='font-Poppins form-label mb-2'>
+                                    <label htmlFor="fdate" className='font-Poppins form-label mb-2'>
                                         From (Date):</label>
-                                    <input type='text' name="myInput" placeholder="Enter Company Name" className="p-1 form-control" />
+                                    <input type='text' name="fdate" className="p-1 form-control" />
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="department" className='font-Poppins form-label mb-2'>
+                                    <label htmlFor="tdate" className='font-Poppins form-label mb-2'>
                                         To (Date):</label>
-                                    <input type='text' name="myInput" placeholder="Enter Company Name" className="p-1 form-control" />
+                                    <input type='text' name="tdate" className="p-1 form-control" />
                                 </div>
                             </div>
                             <div className="mb-2">
-                                <label htmlFor="department" className='font-Poppins form-label mb-2'>
-                                    Status</label>
-                                <input type='text' name="myInput" placeholder="Enter Company Name" className="p-1 form-control" />
+
+                                <label htmlFor="status" className='font-Poppins form-label mb-1'> Employee Status:</label>
+                                <select className='font-Poppins form-select' name="empStatus">
+                                    <option selected>Choose...</option>
+                                    <option value="active">Active</option>
+                                    <option value="deactive">Deactive</option>
+                                </select>
+                                <div className="text-red-700"></div>
                             </div>
                             <div className="text-end">
-                                <input type="submit" value="Update" className='font-Poppins btn btn-success bg-slate-700 mt-2' />
+                                <input type="submit" value="Submit" className='font-Poppins btn btn-success bg-slate-700 mt-2' />
                             </div>
 
                         </form>
