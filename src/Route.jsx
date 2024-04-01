@@ -130,6 +130,10 @@ const router = createBrowserRouter([
         element: <EmpDashboard />,
         children: [
             {
+                path: '/empdashboard',
+                element: <EmpDash />
+            },
+            {
                 path: '/empdashboard/empdash',
                 element: <EmpDash />
             },

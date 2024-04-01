@@ -9,7 +9,7 @@ const Dashboard = () => {
                     <FontAwesomeIcon icon={faCircleUser} className='p-3 absolute text-zinc-200 fa-5x' />
                     <div className="right-part ml-24">
                         <h2 className='p-2 text-zinc-100 font-weight: 500 font-Poppins'>Employee</h2>
-                        <div className='border-b-2 bg-cyan-300'></div>
+                        <div className='border-b-2 bg-cyan-300 m-1'></div>
                         <p id='para1' className='font-Poppins text-[15px] text-zinc-100 ml-2'>Regular <span className='ml-40'>0</span></p>
                         <p id='para2' className='font-Poppins text-[15px] text-zinc-100 ml-2'>Trainee <span className='ml-40'>0</span></p>
                     </div>
@@ -18,7 +18,7 @@ const Dashboard = () => {
                     <FontAwesomeIcon icon={faClock} className='p-3 absolute text-zinc-200 fa-5x' />
                     <div className="right-part ml-24">
                         <h2 className='p-2 text-zinc-100 font-weight: 500 font-Poppins'>Attendance</h2>
-                        <div className='border-b-2 bg-cyan-300'></div>
+                        <div className='border-b-2 bg-cyan-300 m-1'></div>
                         <p id='para1' className='font-Poppins text-[15px] text-zinc-100 ml-2'>Online <span className='ml-40'>0</span></p>
                         <p id='para2' className='font-Poppins text-[15px] text-zinc-100 ml-2'>Offline <span className='ml-40'>0</span></p>
                     </div>
@@ -27,7 +27,7 @@ const Dashboard = () => {
                     <FontAwesomeIcon icon={faHome} className='p-3 absolute text-zinc-200 fa-5x' />
                     <div className="right-part ml-24">
                         <h2 className='p-2 text-zinc-100 font-weight: 500 font-Poppins'>Leaves On Absence</h2>
-                        <div className='border-b-2 bg-cyan-300'></div>
+                        <div className='border-b-2 bg-cyan-300 m-1'></div>
                         <p id='para1' className='font-Poppins text-[15px] text-zinc-100 ml-3'>Approved <span className='ml-36'>0</span></p>
                         <p id='para2' className='font-Poppins text-[15px] text-zinc-100 ml-3'>Pending <span className='ml-40'>0</span></p>
                     </div>
