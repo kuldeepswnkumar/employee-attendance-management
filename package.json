@@ -15,9 +15,12 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "axios": "^1.6.8",
+    "http": "^0.0.1-security",
     "react": "^18.2.0",
     "react-clock": "^4.6.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
     "react-router-dom": "^6.22.3"
   },
   "devDependencies": {

@@ -63,8 +63,8 @@ const Registration = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
-        const isValid = handleValidForm()
-        console.log(isValid);
+        handleValidForm()
+
     }
 
 
@@ -98,7 +98,7 @@ const Registration = () => {
                         </div>
                         <div className="mb-2">
                             <label htmlFor="accType" className='font-Poppins form-label mb-2 mr-2'> Choose Accout Type  </label>
-                            Employee <input className='ml-1 mr-2' type='radio' name="accType" onChange={handleFormData} value="employee" defaultChecked />
+                            Employee <input className='ml-1 mr-2' type='radio' name="accType" onChange={handleFormData} value="employee" selected />
                             Admin<input className='ml-1' type='radio' name="accType" onChange={handleFormData} value="admin" />
                             <div className='text-red-600'>{errForm.accType}</div>
                         </div>
@@ -114,7 +114,7 @@ const Registration = () => {
                         </div>
                         <div className="mb-2">
                             <label htmlFor="status" className='font-Poppins form-label mb-2'>Status <br />
-                                <label><input className='mr-2' type='radio' name="status" value="active" onChange={handleFormData} defaultChecked></input>Active</label>
+                                <label><input className='mr-2' type='radio' name="status" value="active" onChange={handleFormData} selected></input>Active</label>
                                 <label className='mx-3'><input className='mr-2' type='radio' name="status" onChange={handleFormData} value="deactive"></input>Deactive</label>
                                 <div className='text-red-600'>{errForm.status}</div>
                             </label>
