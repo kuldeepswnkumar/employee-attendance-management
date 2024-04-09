@@ -24,34 +24,34 @@ function EmpRegistration() {
 
     const handleValidForm = () => {
         let err = {};
-        if (regForm.empId == '') {
+        if (regForm.empId === '') {
             err.empId = 'Employee id required!'
         }
-        if (regForm.empName == '') {
+        if (regForm.empName === '') {
             err.empName = 'Name is required!'
         }
-        if (regForm.email == '') {
+        if (regForm.email === '') {
             err.email = 'Email is required!'
         }
-        if (regForm.mobile == '') {
+        if (regForm.mobile === '') {
             err.mobile = 'Mobile is required!'
         }
-        if (regForm.accType == '') {
+        if (regForm.accType === '') {
             err.accType = 'Type is required!'
         }
-        if (regForm.empId == '') {
+        if (regForm.empId === '') {
             err.empId = 'Employee id required!'
         }
-        if (regForm.empRole == '') {
+        if (regForm.empRole === '') {
             err.empRole = 'Role is required!'
         }
-        if (regForm.status == '') {
+        if (regForm.status === '') {
             err.status = 'Status is required!'
         }
-        if (regForm.password == '') {
+        if (regForm.password === '') {
             err.password = 'Password is required!'
         }
-        if (regForm.cfmpassword == '') {
+        if (regForm.cfmpassword === '') {
             err.cfmpassword = 'Confirm password is required!'
         }
         setErrForm({ ...err })

@@ -125,6 +125,10 @@ const router = createBrowserRouter([
         path: '/empregistration',
         element: <EmpRegistration />
     },
+    // {
+    //     path: '/load',
+    //     element: <Loading />
+    // },
     {
         path: '/empdashboard',
         element: <EmpDashboard />,
