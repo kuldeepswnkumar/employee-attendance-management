@@ -26,6 +26,7 @@ import EmpDash from './components/EmployeeDashboard/Sidebar/EmpDash'
 import MyAttendance from './components/EmployeeDashboard/Sidebar/MyAttendance'
 import MyLeave from './components/EmployeeDashboard/Sidebar/MyLeave'
 import MySchedules from './components/EmployeeDashboard/Sidebar/MySchedules'
+import Logout from './components/Navigation/Users/Logout'
 
 
 
@@ -67,8 +68,8 @@ const router = createBrowserRouter([
                 element: <Users />
             },
             {
-                path: '/setting',
-                element: <Setting />
+                path: '/logout',
+                element: <Logout />
             },
             {
                 path: '/company',

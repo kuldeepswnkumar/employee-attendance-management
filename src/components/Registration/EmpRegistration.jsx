@@ -81,7 +81,8 @@ function EmpRegistration() {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        // console.log(regForm)
+
+        console.log(regForm)
         let emptyvals = {
             empId: '',
             empName: '',

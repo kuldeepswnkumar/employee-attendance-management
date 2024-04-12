@@ -43,11 +43,9 @@ const Login = () => {
             const logData = await Axios.post("/api/user/login", loginData)
             const response = logData.data
 
+            // console.log("response : ", response);
             if (response.success) {
-                toast.success = toast.message
-            }
-            if (response.success) {
-                toast.error = toast.message
+                toast.success(response.message);
             }
 
             setLoading(true)
@@ -57,19 +55,17 @@ const Login = () => {
                 }, 1000)
                 navigate("/dashboard")
             }, 2000)
-            // console.log(response.data);
 
         } catch (error) {
             console.error('An error occurred:', error);
-
+            toast.error(error.response.data.message || "Somthing went wrong")
         }
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         handleValidData()
-        userLogin()
-        // console.log(loginData);
+        userLogin();
 
     }
 
@@ -103,10 +99,7 @@ const Login = () => {
                                 <input type="password" name='password' placeholder='Type your password' onChange={handleOnChange} value={loginData.password} className='font-Poppins p-2 form-control' />
                                 <div className='text-red-600'>{validData.password}</div>
                             </div>
-                            {/* <div className="mb-3">
-                        <FontAwesomeIcon icon={faLock} /><label htmlFor="username" className='font-Poppins form-label ml-2'>Confirm Password  </label>
-                        <input type="password" name='cfmpassword' placeholder='Type your confirm password' onChange={handleOnChange} value={loginData.cfmpassword} className='font-Poppins p-2 form-control' />
-                    </div> */}
+
                             <div className="reg font-Poppins text-end">
                                 <p>
                                     <Link to="/forget" className='text-blue-700 underline font-Poppins'> Forget Password!</Link>

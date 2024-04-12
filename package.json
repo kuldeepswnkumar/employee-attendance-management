@@ -18,6 +18,7 @@
     "axios": "^1.6.8",
     "http": "^0.0.1-security",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.2",
     "react-clock": "^4.6.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",

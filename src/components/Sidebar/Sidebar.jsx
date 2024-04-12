@@ -1,12 +1,19 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserFriends, faDashboard, faClipboard, faCalendarDay, } from '@fortawesome/free-solid-svg-icons'
-import { faHouseMedical, faReceipt, faUser, faGear } from '@fortawesome/free-solid-svg-icons'
+import { faHouseMedical, faReceipt, faUser } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
 import workday from '../img/Workday-Symbol.png'
+import { useNavigate } from 'react-router-dom'
 import './style.css'
+
+// import { useEffect } from 'react'
 
 
 function SideBar() {
+    // const navigate = useNavigate()
+
+
+
     return (
         <div className="w-1/5 h-auto bg-[#910A67] text-white p-4 border-neutral-600 border-2">
             <div className="logo">
@@ -72,14 +79,18 @@ function SideBar() {
                     >
                         USERS
                     </NavLink></li>
-                    <li className='my-6 font-Poppins hover:underline'><FontAwesomeIcon icon={faGear} className='mx-4' /><NavLink
-                        to="/SETTING"
-                        className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "active" : ""
-                        }
-                    >
-                        SETTING
-                    </NavLink></li>
+                    <li className='my-6 font-Poppins hover:underline'>
+                        <NavLink
+                            to="/logout"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "active" : ""
+                            }
+                        >
+                            {/* <button type="submit" className="btn btn-primary">Logout</button> */}
+                            Navber
+                        </NavLink>
+
+                    </li>
                 </ul>
             </div>
         </div >
