@@ -86,8 +86,6 @@ function SideBar() {
                                 isPending ? "pending" : isActive ? "active" : ""
                             }
                         >
-                            {/* <button type="submit" className="btn btn-primary">Logout</button> */}
-                            Navber
                         </NavLink>
 
                     </li>
