@@ -28,7 +28,7 @@ function Navbar() {
 
                 {/* Language */}
                 <div className="group top-5 mx-1">
-                    <NavDropdown title="Language" id="dropdown-basic" className='text-danger'>
+                    <NavDropdown title="Language" id="dropdown-basic" className='nav-drop-down'>
                         <NavDropdown.Item className='mt-2'>English</NavDropdown.Item>
                         <NavDropdown.Item className='mt-2'>Hindi</NavDropdown.Item>
                         <NavDropdown.Item className='mt-2'>English</NavDropdown.Item>
@@ -37,7 +37,7 @@ function Navbar() {
 
                 {/* QUick Access */}
                 <div className="group top-7 mx-2 text-cyan-50">
-                    <NavDropdown title="Quick Access" id="" className='text-white'>
+                    <NavDropdown title="Quick Access" id="" className='nav-drop-down'>
                         <NavDropdown.Item className='mt-2'><Link to="/company">Company</Link></NavDropdown.Item>
                         <NavDropdown.Item className='mt-2'> <Link to="/department">Department</Link></NavDropdown.Item>
                         <NavDropdown.Item className='mt-2'><Link to="/jobtitle">Job Title</Link></NavDropdown.Item>
@@ -47,8 +47,8 @@ function Navbar() {
 
                 {/* User */}
                 <div className="group top-7">
-                    <NavDropdown title="Users" id="" className='text-white'>
-                        <NavDropdown.Item className='mt-2'><Link to="/updateaccount">Update Account</Link></NavDropdown.Item>
+                    <NavDropdown title="Users" id="" className='nav-drop-down'>
+                        <NavDropdown.Item className='mt-2'><Link to="/updateemployee">Update Account</Link></NavDropdown.Item>
                         <NavDropdown.Item className='mt-2'><Link to="/changepass">Change Password</Link></NavDropdown.Item>
                         <NavDropdown.Item ><Link to={'/logout'}>Logout</Link></NavDropdown.Item>
                     </NavDropdown>

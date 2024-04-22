@@ -27,7 +27,9 @@ import MyAttendance from './components/EmployeeDashboard/Sidebar/MyAttendance'
 import MyLeave from './components/EmployeeDashboard/Sidebar/MyLeave'
 import MySchedules from './components/EmployeeDashboard/Sidebar/MySchedules'
 import Logout from './components/Navigation/Users/Logout'
-
+import ChangePass from './components/Navigation/Users/ChangePass'
+import EmployeeUpdate from './components/Employee/EmployeeUpdate'
+import DeleteEmployee from './components/Employee/DeleteEmployee'
 
 
 const router = createBrowserRouter([
@@ -111,7 +113,7 @@ const router = createBrowserRouter([
         element: <EmployeeAdd />
     },
     {
-        path: '/employeeview',
+        path: '/employeeview/:id',
         element: <EmployeeView />
     },
     {
@@ -125,6 +127,18 @@ const router = createBrowserRouter([
     {
         path: '/empregistration',
         element: <EmpRegistration />
+    },
+    {
+        path: '/changepass',
+        element: <ChangePass />
+    },
+    {
+        path: '/updateemployee/:id',
+        element: <EmployeeUpdate />
+    },
+    {
+        path: '/deleteemployee/:id',
+        element: <DeleteEmployee />
     },
     // {
     //     path: '/load',
