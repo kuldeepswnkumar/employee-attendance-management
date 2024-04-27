@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import Axios from '../../Axios'
 import toast from 'react-hot-toast'
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
@@ -12,11 +12,18 @@ const Login = () => {
 
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false)
+    const [isAdmin, setIsAdmin] = useState(false)
     const [validData, setValidData] = useState({})
     const [loginData, setLoginData] = useState({
         email: "",
         password: "",
     })
+    const [searchParams, setSearchParams] = useSearchParams();
+
+
+    if (localStorage.getItem('AccessToken')) {
+        navigate('/dashboard')
+    }
 
     const handleValidData = () => {
         let err = {};
@@ -43,16 +50,18 @@ const Login = () => {
             const logData = await Axios.post("/api/user/login", loginData)
             const response = logData.data
 
-            // console.log("response : ", response);
+            console.log("response : ", response.data.user.empName);
             if (response.success) {
                 toast.success(response.message);
             }
 
+            localStorage.setItem("AccessToken", response.data.accessToken)
+            localStorage.setItem("name", response.data.user.empName)
             setLoading(true)
             setTimeout(() => {
                 setTimeout(() => {
                     setLoading(false)
-                }, 1000)
+                }, 3000)
                 navigate("/dashboard")
             }, 2000)
 
@@ -69,6 +78,9 @@ const Login = () => {
 
     }
 
+    useEffect(() => {
+        setIsAdmin(searchParams.get('type') != null)
+    }, [])
 
     return (
 
@@ -109,12 +121,17 @@ const Login = () => {
                                 <input type="submit" value="Login" className='font-Poppins btn btn-primary w-[100%] mt-1 bg-slate-700' />
                             </div>
                         </form>
+                        {
+                            !isAdmin ?
+                                <div className="reg font-Poppins text-center">
+                                    <p>If you don't have accout
+                                        <Link to="/empregistration" className='text-blue-600 underline font-Poppins'> Sign in</Link> here
+                                    </p>
+                                </div>
+                                : null
 
-                        <div className="reg font-Poppins text-center">
-                            <p>If you don't have accout
-                                <Link to="/empregistration" className='text-blue-600 underline font-Poppins'> Sign in</Link> here
-                            </p>
-                        </div>
+                        }
+
                     </div >
             }
         </div >

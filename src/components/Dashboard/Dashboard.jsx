@@ -1,6 +1,24 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleUser, faClock, faHome } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+
 const Dashboard = () => {
+
+    const navigate = useNavigate()
+
+
+
+    useEffect(() => {
+        const token = localStorage.getItem("AccessToken")
+        if (token) {
+            navigate('/dashboard')
+        } else {
+            navigate('/login')
+        }
+    }, [])
+
+
     return (
         <div>
             <h1 className='border-2 border-gray-500 rounded m-2 p-2 inline-block font-Poppins'>Dashboard</h1>

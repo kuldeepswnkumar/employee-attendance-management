@@ -1,23 +1,28 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faFlag, faRing, faUser } from '@fortawesome/free-solid-svg-icons'
 import NavDropdown from 'react-bootstrap/NavDropdown';
-// import Axios from '../../Axios';
+import Axios from '../../Axios';
 // import toast from 'react-hot-toast'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast';
+
 
 
 
 function Navbar() {
 
-    // let logout = async () => {
-    //     const response = await Axios.post('http://localhost:8000/api/user/logout', null)
-    //     console.log(response.data);
-    //     if (response.success) {
-    //         toast.success = response.message
-    //     }
-    //     history.push('/login');
+    const navigate = useNavigate()
+    const handleLogout = async () => {
+        const response = await Axios.get('http://localhost:8000/api/user/logout')
+        // console.log("response", response)
+        toast.success(response.data.data)
+        localStorage.clear()
+        setTimeout(() => {
+            navigate("/login");
+        }, 1000)
+    }
+    const myname = localStorage.getItem("name")
 
-    // }
 
     return (
         <div className="w-full bg-[#910A67] text-white p-2 border-neutral-600 border-2 flex justify-between">
@@ -45,12 +50,13 @@ function Navbar() {
 
                 </div>
 
+
                 {/* User */}
                 <div className="group top-7">
-                    <NavDropdown title="Users" id="" className='nav-drop-down'>
+                    <NavDropdown title={myname} id="" className='nav-drop-down'>
                         <NavDropdown.Item className='mt-2'><Link to="/updateemployee">Update Account</Link></NavDropdown.Item>
                         <NavDropdown.Item className='mt-2'><Link to="/changepass">Change Password</Link></NavDropdown.Item>
-                        <NavDropdown.Item ><Link to={'/logout'}>Logout</Link></NavDropdown.Item>
+                        <NavDropdown.Item onClick={handleLogout} >Logout</NavDropdown.Item>
                     </NavDropdown>
 
 

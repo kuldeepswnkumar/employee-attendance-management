@@ -13,7 +13,7 @@ function Employee() {
     useEffect(() => {
         Axios.get('http://localhost:8000/api/user/viewdata')
             .then((res) => {
-                console.log("resp data", res.data.data);
+                // console.log("resp data", res.data.data);
 
                 setData(res.data.data.filter((val) => val.fname != undefined))
                 // console.log("resp edata", edata);

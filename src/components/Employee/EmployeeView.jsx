@@ -1,8 +1,11 @@
 import img from '../img/formal pic.jpg'
-import ButtonReturn from '../Button/Button'
+// import ButtonReturn from '../Button/Button'
 import { useEffect, useState } from 'react'
 import Axios from '../../Axios'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 
 
@@ -27,7 +30,12 @@ function EmployeeView() {
     return (
         <div className='container'>
             <h1 className='border-2 border-gray-500 rounded p-2 m-1 inline-block font-Poppins'>Employee Profile</h1>
-            <ButtonReturn />
+            {/* <ButtonReturn /> */}
+            <div className="text-end mr-4">
+                <Link to="/addemployee">
+                    <Link to="/employes"><FontAwesomeIcon icon={faArrowLeft} /> <input type="button" value="Return" className='font-Poppins btn btn-success bg-slate-700' /> </Link>
+                </Link>
+            </div>
             {
                 emdata?.map((curr, i) => {
                     return (
@@ -40,11 +48,13 @@ function EmployeeView() {
                             </div>
                             <div className="w-3/5 bg-slate-400 p-3 rounded h-[630px]">
                                 <div className="info ml-4">
+                                    <h3 className='font-Poppins font-bold'>Personal Details</h3>
                                     <div className='m-3 font-Poppins'>Civil Status: {curr.cstatus} </div>
                                     <div className='m-3 font-Poppins'>Age: {curr.age}</div>
                                     <div className='m-3 font-Poppins'>Gender: {curr.gender}</div>
                                     <div className='m-3 font-Poppins'>Date of Birth: {curr.dob}</div>
                                     <div className='m-3 font-Poppins'>Address: {curr.address}</div>
+                                    <h3 className='font-Poppins font-bold'>Company Information</h3>
                                     <h3 className='m-3 font-Poppins'>Company: {curr.company}</h3>
                                     <div className='m-3 font-Poppins'>Department: {curr.department}</div>
                                     <div className='m-3 font-Poppins'>Position: {curr.jobtitle}</div>
@@ -65,5 +75,4 @@ function EmployeeView() {
 
 export default EmployeeView
 
-{/* <h3 className='font-Poppins font-bold'>Personal Details</h3> */ }
-{/* <h3 className='font-Poppins font-bold'>Company Information</h3> */ }
+

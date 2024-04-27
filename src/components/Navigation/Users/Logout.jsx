@@ -10,21 +10,12 @@ function Logout() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false)
 
-    useEffect(() => {
-        const handleLogout = async () => {
-            const response = await Axios.post('http://localhost:8000/api/user/logout', null)
-            console.log(response.data)
-        }
-        handleLogout()
-        setLoading(true)
+    // handleLogout()
 
-        setTimeout(() => {
-            setLoading(false)
-            setTimeout(() => {
-                navigate("/login")
-            }, 1000)
-        }, 2000)
-    })
+
+    // useEffect(() => {
+
+    // }, [])
     return (
         <div>
             {/* <button type='submit' className='btn btn-primary'>Logout</button> */}

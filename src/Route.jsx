@@ -7,7 +7,6 @@ import Schedules from './components/Schedules/Schedules'
 import Leaves from './components/Leaves/Leave'
 import Reports from './components/Reports/Reports'
 import Users from './components/Users/Users'
-import Setting from './components/Setting/Setting'
 import Company from './components/Navigation/QuickAccess/Company'
 import Department from './components/Navigation/QuickAccess/Department'
 import JobTitle from './components/Navigation/QuickAccess/JobTitle'
@@ -30,6 +29,7 @@ import Logout from './components/Navigation/Users/Logout'
 import ChangePass from './components/Navigation/Users/ChangePass'
 import EmployeeUpdate from './components/Employee/EmployeeUpdate'
 import DeleteEmployee from './components/Employee/DeleteEmployee'
+import DeleteAtten from './components/Attendance/DeleteAtten'
 
 
 const router = createBrowserRouter([
@@ -139,6 +139,10 @@ const router = createBrowserRouter([
     {
         path: '/deleteemployee/:id',
         element: <DeleteEmployee />
+    },
+    {
+        path: '/deleteattendance/:id',
+        element: <DeleteAtten />
     },
     // {
     //     path: '/load',

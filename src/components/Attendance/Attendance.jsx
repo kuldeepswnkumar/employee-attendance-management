@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { faPenToSquare, faTrash, } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ButtonReturn from '../Button/Button'
+import Axios from '../../Axios'
 
 const Attendance = () => {
+
+    const [adData, setAdData] = useState([])
+
+    useEffect(() => {
+        Axios.get('http://localhost:8000/api/user/attenedempview')
+            .then((resp) => {
+                console.log(resp.data.data);
+                setAdData(resp.data.data)
+            }).catch((error) => {
+                console.log(error);
+            })
+    }, [])
+
     return (
         <div>
             <h1 className='border-2 border-gray-500 rounded m-2 p-2 inline-block font-Poppins uppercase'>Attendance</h1>
@@ -15,63 +29,35 @@ const Attendance = () => {
                         <thead>
                             <tr>
                                 <th scope="col">Date</th>
+                                <th scope="col">InputOutTime</th>
                                 <th scope="col">Employee</th>
                                 <th scope="col">Time In</th>
                                 <th scope="col">Time Out</th>
-                                <th scope="col">Total Hours</th>
                                 <th scope="col">Status (In/Out)</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">26-03-2024</th>
-                                <td>Mark</td>
-                                <td>10:00 AM</td>
-                                <td>04:00 PM</td>
-                                <td>6 Hrs</td>
-                                <td>Time (In/Out)</td>
-                                <td>
-                                    <FontAwesomeIcon icon={faPenToSquare} className='text-xl' /><input type="button" value="" className='m-1' />
-                                    <FontAwesomeIcon icon={faTrash} className='text-xl' /><input type="button" value="" className='m-1' />
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">26-03-2024</th>
-                                <td>Mark</td>
-                                <td>10:00 AM</td>
-                                <td>04:00 PM</td>
-                                <td>6 Hrs</td>
-                                <td>Time (In/Out)</td>
-                                <td>
-                                    <FontAwesomeIcon icon={faPenToSquare} className='text-xl' /><input type="button" value="" className='m-1' />
-                                    <FontAwesomeIcon icon={faTrash} className='text-xl' /><input type="button" value="" className='m-1' />
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">26-03-2024</th>
-                                <td>Mark</td>
-                                <td>10:00 AM</td>
-                                <td>04:00 PM</td>
-                                <td>6 Hrs</td>
-                                <td>Time (In/Out)</td>
-                                <td>
-                                    <FontAwesomeIcon icon={faPenToSquare} className='text-xl' /><input type="button" value="" className='m-1' />
-                                    <FontAwesomeIcon icon={faTrash} className='text-xl' /><input type="button" value="" className='m-1' />
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">26-03-2024</th>
-                                <td>Mark</td>
-                                <td>10:00 AM</td>
-                                <td>04:00 PM</td>
-                                <td>6 Hrs</td>
-                                <td>Time (In/Out)</td>
-                                <td>
+                            {
+                                adData.map((curr, i) => {
+                                    return (
+                                        <tr key={i}>
+                                            <td>{curr.fullDate}</td>
+                                            <th scope="row">{curr.inoutTime}</th>
+                                            <td>{curr.EmployeeName}</td>
+                                            <td>{curr.TimeIn}</td>
+                                            <td>{curr.TimeOut}</td>
+                                            <td>{curr.EmpStatus}</td>
+                                            <td>
+                                                <FontAwesomeIcon icon={faPenToSquare} className='text-xl' /><input type="button" value="" className='m-1' />
+                                                <Link to={'/deleteattendance/' + curr._id}>
+                                                    <FontAwesomeIcon icon={faTrash} className='text-xl' /><input type="button" value="" className='m-1' />
+                                                </Link>
 
-                                    <FontAwesomeIcon icon={faPenToSquare} className='text-xl' /><input type="button" value="" className='m-1' />
-                                    <FontAwesomeIcon icon={faTrash} className='text-xl' /><input type="button" value="" className='m-1' />
-                                </td>
-                            </tr>
+                                            </td>
+                                        </tr>
+                                    )
+                                })
+                            }
 
                         </tbody>
                     </table>
