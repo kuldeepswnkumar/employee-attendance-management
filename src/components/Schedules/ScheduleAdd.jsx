@@ -1,6 +1,9 @@
 import React from 'react'
 import ButtonReturn from '../Button/Button'
 
+
+
+
 function ScheduleAdd() {
     return (
         <div>
@@ -14,12 +17,12 @@ function ScheduleAdd() {
                             <div className="mb-2 row">
                                 <div className="col">
                                     <label htmlFor="name" className='mb-1 font-Poppins'> Employee</label>
-                                    <input type="text" name='emp' value="" placeholder='Type your Employee Name' className='font-Poppins form-control' />
+                                    <input type="text" name='empName' value="" placeholder='Type your Employee Name' className='font-Poppins form-control' />
                                     <div className="text-red-700"></div>
                                 </div>
                                 <div className="col">
                                     <label htmlFor="date" className='mb-1 font-Poppins'>Join Date </label>
-                                    <input type="date" name='jdate' value="" className='font-Poppins form-control' />
+                                    <input type="date" name='joindate' value="" className='font-Poppins form-control' />
                                     <div className="text-red-700"></div>
                                 </div>
                             </div>
@@ -27,12 +30,12 @@ function ScheduleAdd() {
                                 <div className="col">
                                     <label htmlFor="stime" className='font-Poppins form-label mb-2'>
                                         Start Time:</label>
-                                    <input type='text' name="stime" placeholder="Enter Start Time" className="p-1 form-control" />
+                                    <input type='text' name="strTime" placeholder="Enter Start Time" className="p-1 form-control" />
                                 </div>
                                 <div className="col">
                                     <label htmlFor="otime" className='font-Poppins form-label mb-2'>
                                         Off Time:</label>
-                                    <input type='text' name="otime" placeholder="Enter Off Time" className="p-1 form-control" />
+                                    <input type='text' name="offTime" placeholder="Enter Off Time" className="p-1 form-control" />
                                 </div>
                             </div>
                             <div className="mb-2 ">

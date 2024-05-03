@@ -30,6 +30,7 @@ import ChangePass from './components/Navigation/Users/ChangePass'
 import EmployeeUpdate from './components/Employee/EmployeeUpdate'
 import DeleteEmployee from './components/Employee/DeleteEmployee'
 import DeleteAtten from './components/Attendance/DeleteAtten'
+import UpdateClock from './components/Clock/UpdateClock'
 
 
 const router = createBrowserRouter([
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
         element: <Clock />
     },
     {
+        path: '/updateclock',
+        element: <UpdateClock />
+    },
+    {
         path: '/login',
         element: <Login />
     },
@@ -144,10 +149,6 @@ const router = createBrowserRouter([
         path: '/deleteattendance/:id',
         element: <DeleteAtten />
     },
-    // {
-    //     path: '/load',
-    //     element: <Loading />
-    // },
     {
         path: '/empdashboard',
         element: <EmpDashboard />,

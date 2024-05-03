@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 function EmpNavber() {
     return (
         <div>
-            <div className="w-full h-16 bg-[#910A67] text-white p-2 border-neutral-600 border-2 flex justify-between">
+            <div className="w-full h-16 bg-[#145564] text-white p-2 border-neutral-600 border-2 flex justify-between">
                 <div className="menu left-part">
                     <h5 className='border-2 inline-block p-1 rounded-lg font-Poppins'><FontAwesomeIcon icon={faBars} className='mx-1 mt-1 ' />Menu</h5>
                 </div>

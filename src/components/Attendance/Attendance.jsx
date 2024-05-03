@@ -33,6 +33,7 @@ const Attendance = () => {
                                 <th scope="col">Employee</th>
                                 <th scope="col">Time In</th>
                                 <th scope="col">Time Out</th>
+                                <th scope="col">TotalTime</th>
                                 <th scope="col">Status (In/Out)</th>
                             </tr>
                         </thead>
@@ -46,7 +47,8 @@ const Attendance = () => {
                                             <td>{curr.EmployeeName}</td>
                                             <td>{curr.TimeIn}</td>
                                             <td>{curr.TimeOut}</td>
-                                            <td>{curr.EmpStatus}</td>
+                                            <td>{curr.totalTime}</td>
+                                            <td>{curr.myStatus}</td>
                                             <td>
                                                 <FontAwesomeIcon icon={faPenToSquare} className='text-xl' /><input type="button" value="" className='m-1' />
                                                 <Link to={'/deleteattendance/' + curr._id}>

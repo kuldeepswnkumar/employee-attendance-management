@@ -95,8 +95,6 @@ const Login = () => {
                     data-testid="loader"
                     className='mt-60'
                 /> :
-
-
                     < div className="login m-auto items-center border-2 border-gray-500 w-[30%] bg-white rounded-lg p-4" >
                         <h1 className='text-center p-3 font-Poppins font-bold text-2xl'>Login</h1>
                         <form onSubmit={handleSubmit} autoComplete='off'>

@@ -6,7 +6,7 @@ import workday from '../img/Workday-Symbol.png'
 
 function EmpSidebar() {
     return (
-        <div className="w-1/5 h-auto bg-[#910A67] text-white p-4 border-neutral-600 border-2">
+        <div className="w-1/5 h-auto bg-[#145564] text-white p-4 border-neutral-600 border-2">
             <div className="logo">
                 <img className='w-36 mx-auto' src={workday} alt="workday" />
                 <div className='border-b-2 bg-cyan-300 my-3'></div>

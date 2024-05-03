@@ -13,7 +13,7 @@ const Leaves = () => {
                     <div className="flex float-end m-4">
                         <ButtonReturn />
                         <Link to="/scheduleadd">
-                            <input type="button" value="Add Schedule" className='font-Poppins btn btn-success bg-slate-700' />
+                            <input type="button" value="Apply Leave" className='font-Poppins btn btn-success bg-slate-700' />
                         </Link>
 
                     </div>
@@ -30,7 +30,7 @@ const Leaves = () => {
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            {/* <tbody>
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>Mark</td>
@@ -91,7 +91,7 @@ const Leaves = () => {
                                         <FontAwesomeIcon icon={faTrash} className='text-xl' /><input type="button" value="" className='m-1' />
                                     </td>
                                 </tr>
-                            </tbody>
+                            </tbody> */}
                         </table>
                     </div>
                 </div >
