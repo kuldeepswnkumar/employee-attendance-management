@@ -6,8 +6,7 @@ import Attendance from './components/Attendance/Attendance'
 import Schedules from './components/Schedules/Schedules'
 import Leaves from './components/Leaves/Leave'
 import Reports from './components/Reports/Reports'
-import Users from './components/Users/Users'
-import Company from './components/Navigation/QuickAccess/Company'
+import Companies from './components/Companies/Companies'
 import Department from './components/Navigation/QuickAccess/Department'
 import JobTitle from './components/Navigation/QuickAccess/JobTitle'
 import Login from './components/Registration/Login'
@@ -31,6 +30,8 @@ import EmployeeUpdate from './components/Employee/EmployeeUpdate'
 import DeleteEmployee from './components/Employee/DeleteEmployee'
 import DeleteAtten from './components/Attendance/DeleteAtten'
 import UpdateClock from './components/Clock/UpdateClock'
+import Company from './components/Navigation/QuickAccess/Company'
+import DeleteCompany from './components/Companies/DeleteCompany'
 
 
 const router = createBrowserRouter([
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
                 element: <Employee />
             },
             {
+                path: '/company',
+                element: <Company />
+            },
+            {
                 path: '/attendance',
                 element: <Attendance />
             },
@@ -67,16 +72,12 @@ const router = createBrowserRouter([
                 element: <Reports />
             },
             {
-                path: '/users',
-                element: <Users />
-            },
-            {
                 path: '/logout',
                 element: <Logout />
             },
             {
-                path: '/company',
-                element: <Company />
+                path: '/companies',
+                element: <Companies />
             },
             {
                 path: '/department',
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
             {
                 path: '/editattendance',
                 element: <EditAttendance />
+            },
+            {
+                path: '/deletecompany/:id',
+                element: <DeleteCompany />
             },
 
         ],

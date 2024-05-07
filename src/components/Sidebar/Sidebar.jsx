@@ -72,7 +72,7 @@ function SideBar() {
                         REPORTS
                     </NavLink></li>
                     <li className='my-6 font-Poppins hover:underline'><FontAwesomeIcon icon={faHouse} className='mx-4' /><NavLink
-                        to="/users"
+                        to="/companies"
                         className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "active" : ""
                         }
