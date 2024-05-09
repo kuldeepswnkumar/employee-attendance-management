@@ -32,6 +32,9 @@ import DeleteAtten from './components/Attendance/DeleteAtten'
 import UpdateClock from './components/Clock/UpdateClock'
 import Company from './components/Navigation/QuickAccess/Company'
 import DeleteCompany from './components/Companies/DeleteCompany'
+import ScheduleUpdate from './components/Schedules/ScheduleUpdate'
+import DeleteSchedule from './components/Schedules/DeleteSchedule'
+import AddLeave from './components/Leaves/AddLeave'
 
 
 const router = createBrowserRouter([
@@ -95,6 +98,10 @@ const router = createBrowserRouter([
                 path: '/deletecompany/:id',
                 element: <DeleteCompany />
             },
+            {
+                path: '/addleave',
+                element: <AddLeave />
+            },
 
         ],
     },
@@ -153,6 +160,14 @@ const router = createBrowserRouter([
     {
         path: '/deleteattendance/:id',
         element: <DeleteAtten />
+    },
+    {
+        path: '/scheduleupdate/:id',
+        element: <ScheduleUpdate />
+    },
+    {
+        path: '/deleteschedule/:id',
+        element: <DeleteSchedule />
     },
     {
         path: '/empdashboard',
