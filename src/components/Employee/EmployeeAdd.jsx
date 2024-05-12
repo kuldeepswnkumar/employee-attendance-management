@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ButtonReturn from "../Button/Button";
 import Axios from "../../Axios";
 import toast from "react-hot-toast";
@@ -8,6 +8,8 @@ import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 
 const EmployeeAdd = () => {
     const navigate = useNavigate()
+    const [departData, setDepartData] = useState([])
+    const [compData, setCompData] = useState([])
     const [loading, setLoading] = useState(false)
     const [formErr, setFormErr] = useState({})
     const [formData, setFormData] = useState(
@@ -189,9 +191,30 @@ const EmployeeAdd = () => {
         errorFormHandler()
         SendEmpData()
         empTyForm()
-
-
     }
+
+    useEffect(() => {
+        Axios.get('http://localhost:8000/api/user/viewcompany')
+            .then((response) => {
+                // console.log(response.data);
+                setCompData(response.data.data)
+                toast.success(response.data.message)
+            }).catch((err) => {
+                console.log(err);
+            })
+    }, [])
+
+    useEffect(() => {
+        Axios.get('http://localhost:8000/api/user/getdepartmentdata')
+            .then((response) => {
+                console.log(response.data.data);
+                setDepartData(response.data.data)
+                // toast.success(response.data.message)
+                // navigate('/getdepartmentdata')
+            }).catch((error) => {
+                console.log(error);
+            })
+    }, [])
     return (
         <div>
             <h1 className='text-center font-Poppins font-bold text-2xl p-2 border-gray-950 bg-green-500'>Add Employee</h1>
@@ -287,24 +310,40 @@ const EmployeeAdd = () => {
 
                                     </div>
                                     <div className="mb-2 row">
+
                                         <div className="col">
                                             <label htmlFor="company" className='font-Poppins form-label mb-1'> Company:  </label>
+
                                             <select className='font-Poppins form-select' name="company" value={formData.company} onChange={handleFormData} >
                                                 <option selected>Choose...</option>
-                                                <option value="Apple">Apple</option>
-                                                <option value="Microsoft">Microsoft</option>
-                                                <option value="Google">Google</option>
+                                                {
+                                                    compData?.map((curr, i) => {
+                                                        return (
+                                                            <option key={i}>{curr.compName}</option>
+                                                        )
+                                                    })
+                                                }
                                             </select>
+
+
                                             <div className="text-red-700">{formErr.company}</div>
                                         </div>
+
                                         <div className="col">
                                             <label htmlFor="department" className='font-Poppins form-label mb-1'> Department: </label>
                                             <select className='font-Poppins form-select' onChange={handleFormData} value={formData.department} name="department">
-                                                <option selected>Choose...</option>
-                                                <option value="IT">IT</option>
-                                                <option value="Management">Management</option>
-                                                <option value="Account">Account</option>
+                                                <option selected>Choose...</option>,
+                                                {
+                                                    departData?.map((curr, i) => {
+                                                        return (
+                                                            <option value="IT" key={i}>{curr.deptName}</option>
+                                                        )
+
+                                                    })
+                                                }
                                             </select>
+
+
                                             <div className="text-red-700">{formErr.department}</div>
                                         </div>
                                     </div>

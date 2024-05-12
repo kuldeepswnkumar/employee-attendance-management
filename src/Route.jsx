@@ -35,6 +35,10 @@ import DeleteCompany from './components/Companies/DeleteCompany'
 import ScheduleUpdate from './components/Schedules/ScheduleUpdate'
 import DeleteSchedule from './components/Schedules/DeleteSchedule'
 import AddLeave from './components/Leaves/AddLeave'
+import LeaveDelete from './components/Leaves/LeaveDelete'
+import GetDepartmentData from './components/Department/GetDepartmentData'
+import DeleteDepartment from './components/Department/DeleteDepartment'
+import LeaveAdd from './components/EmployeeDashboard/Sidebar/LeaveAdd'
 
 
 const router = createBrowserRouter([
@@ -101,6 +105,18 @@ const router = createBrowserRouter([
             {
                 path: '/addleave',
                 element: <AddLeave />
+            },
+            {
+                path: '/deleteleave/:id',
+                element: <LeaveDelete />
+            },
+            {
+                path: '/getdepartmentdata',
+                element: <GetDepartmentData />
+            },
+            {
+                path: '/deletedepartment/:id',
+                element: <DeleteDepartment />
             },
 
         ],
@@ -192,6 +208,10 @@ const router = createBrowserRouter([
             {
                 path: '/empdashboard/myschedules',
                 element: <MySchedules />
+            },
+            {
+                path: '/empdashboard/addleave',
+                element: <LeaveAdd />
             },
         ]
     }

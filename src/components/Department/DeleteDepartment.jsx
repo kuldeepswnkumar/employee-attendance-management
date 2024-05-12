@@ -1,39 +1,41 @@
 import React, { useEffect, useState } from 'react'
 import Axios from '../../Axios'
-import { useParams, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
+import { useNavigate, useParams } from 'react-router-dom'
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader'
 
-function DeleteCompany() {
-    const { id } = useParams()
+function DeleteDepartment() {
     const navigate = useNavigate()
+    const { id } = useParams()
+    const [loading, setLoading] = useState(false)
+
+    console.log("id", id);
 
 
-    const [loading, setLoading] = useState([])
+
 
 
     useEffect(() => {
-        Axios.delete(`http://localhost:8000/api/user/deletecompany/${id}`)
+        Axios.delete(`http://localhost:8000/api/user/deletedepartment/${id}`)
             .then((response) => {
-                console.log(response.data);
-                toast.success(response.data.data)
+                console.log(response);
+                toast.success(response.data.message)
                 setLoading(true)
                 setTimeout(() => {
                     setTimeout(() => {
                         setLoading(false)
                     }, 1000)
-                    navigate("/companies")
+                    navigate("/getdepartmentdata")
                 }, 2000)
-            }).catch((err) => {
-                console.log(err);
+            }).catch((error) => {
+                console.log(error);
             })
     }, [id])
 
 
 
     return (
-
-        <div>
+        <>
             {
                 loading ? <ClimbingBoxLoader
                     color={'#d64036'}
@@ -41,12 +43,14 @@ function DeleteCompany() {
                     size={30}
                     aria-label="Loading Spinner"
                     data-testid="loader"
-                    className='mt-60 ml-[500px]'
-                /> :
+                    className='mt-60 ml-[700px]'
+                />
+
+                    :
                     <div></div>
             }
-        </div>
+        </>
     )
 }
 
-export default DeleteCompany
+export default DeleteDepartment

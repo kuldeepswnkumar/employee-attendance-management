@@ -1,8 +1,19 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleUser, faClock, faHome } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom';
 
 function EmpDash() {
+
+    const navigate = useNavigate()
+
+    const Toekn = localStorage.getItem('AccessToken');
+
+    if (Toekn) {
+        navigate('/empdashboard')
+    } else {
+        navigate('/Emplogin')
+    }
     return (
         <div>
             <h1 className='border-2 border-gray-500 rounded m-2 p-2 inline-block font-Poppins'>Dashboard</h1>

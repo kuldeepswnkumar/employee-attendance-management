@@ -1,10 +1,26 @@
-import React from 'react'
-import { faPenToSquare, faTrash, faFilePdf } from '@fortawesome/free-solid-svg-icons'
+import React, { useEffect, useState } from 'react'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ButtonReturn from '../Button/Button'
 import { Link } from 'react-router-dom'
+import Axios from '../../Axios'
+import toast from 'react-hot-toast'
 
 const Leaves = () => {
+
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        Axios.get('http://localhost:8000/api/user/getleavedata')
+            .then((response) => {
+                console.log(response.data.data);
+                setData(response.data.data)
+                toast.success(response.data.message)
+            }).catch((err) => {
+                console.log(err);
+            })
+    }, [])
+
     return (
         <div>
             <div>
@@ -17,7 +33,7 @@ const Leaves = () => {
                         </Link>
 
                     </div>
-                    <div className="emplist p-3">
+                    <div className="leavelist p-3">
                         <table className="table">
                             <thead>
                                 <tr>
@@ -30,7 +46,29 @@ const Leaves = () => {
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                {
+                                    data?.map((curr, i) => {
+                                        return (
+                                            <tr key={i}>
+                                                <td>{curr.empId}</td>
+                                                <td>{curr.empName}</td>
+                                                <td>{curr.decription}</td>
+                                                <td>{curr.leavefrom}</td>
+                                                <td>{curr.leaveto}</td>
+                                                <td>{curr.returndate}</td>
+                                                <td>{curr.leaveStatus}</td>
+                                                <td>
+                                                    <Link to={'/deleteleave/' + curr._id} >
+                                                        <FontAwesomeIcon icon={faTrash} className='text-xl' /><input type="button" value="" className='m-1' />
+                                                    </Link>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })
+                                }
 
+                            </tbody>
                         </table>
                     </div>
                 </div >

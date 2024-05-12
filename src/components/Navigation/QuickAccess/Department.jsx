@@ -1,51 +1,136 @@
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
+import ButtonReturn from "../../Button/Button";
+import { useState } from "react";
+import Axios from "../../../Axios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function Company() {
-    function search(formData) {
-        const query = formData.get("query");
-        alert(`You searched for '${query}'`);
+    const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
+    const [errForm, setErrForm] = useState({})
+    const [formData, setFormData] = useState({
+        departId: '',
+        deptName: '',
+        jobRole: '',
+        deprtEmail: '',
+        deprtStatus: ''
+    })
+
+    const validateForm = () => {
+        const err = {}
+
+        if (formData.departId === '') {
+            err.deprtId = 'Id is required!'
+        }
+        if (formData.deptName === '') {
+            err.deptName = 'Department Name is required!'
+        }
+        if (formData.jobRole === '') {
+            err.jobRole = 'Job Role is required!'
+        }
+        if (formData.deprtEmail === '') {
+            err.deprtEmail = 'Email is required!'
+        }
+        if (formData.deprtStatus === '') {
+            err.deprtStatus = 'Status is required!'
+        }
+
+        setErrForm({ ...err })
+
+        return false
     }
+
+    const handleChange = (e) => {
+        setFormData(() => ({
+            ...formData,
+            [e.target.name]: e.target.value
+        }))
+    }
+
+    const SendFormData = () => {
+        Axios.post('http://localhost:8000/api/user/adddepartment', formData)
+            .then((response) => {
+                console.log(response);
+                toast.success(response.data.message)
+                setLoading(true)
+                setTimeout(() => {
+                    setTimeout(() => {
+                        setLoading(false)
+                    }, 1000)
+                    navigate('/getdepartmentdata')
+                }, 2000)
+
+            }).catch((error) => {
+                console.log(error);
+            })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        validateForm()
+        SendFormData()
+    }
+
+
+
     return (
-        <div className="w-auto">
-            <h1 className='border-2 border-gray-500 rounded m-2 p-2 inline-block font-Poppins'>Add Department</h1>
-            <div className="flex p-4">
-                <div className="w-1/3 bg-white p-3 mx-4 rounded h-[150px]">
-                    <form className="font-Poppins">
-                        <div className="mb-3">
-                            <label htmlFor="department" className='font-Poppins form-label mb-2'>
-                                Department: <span className="text-gray-400 font-Poppins">eg:IT</span><br /></label>
-                            <input name="myInput" placeholder="Enter Department" className="p-1 form-control" />
+        <div>
+            <div className="w-[80%] m-auto">
+                <h1 className='border-2 border-gray-500 rounded m-2 p-2 inline-block font-Poppins'>Add Department Details</h1>
+                <ButtonReturn />
+                {
+                    loading ? <ClimbingBoxLoader
+                        color={'#d64036'}
+                        loading={loading}
+                        size={30}
+                        aria-label="Loading Spinner"
+                        data-testid="loader"
+                        className='mt-60 ml-[500px]'
+                    /> :
 
-                        </div>
-                        <div className="text-end">
-                            <input type="submit" value="Submit" className='font-Poppins btn btn-success bg-slate-700' />
-                        </div>
+                        <div className="p-1">
+                            <div className=" bg-white p-4 mx-4 rounded h-auto">
+                                <form className="font-Poppins" onSubmit={handleSubmit}>
+                                    <div className="mb-3">
+                                        <label htmlFor="departId" className='mb-1 font-Poppins'> Department Id</label>
+                                        <input type="text" name='departId' value={formData.compId} onChange={handleChange} placeholder='Type here company id' className='p-2 font-Poppins form-control' />
+                                        <div className="text-red-700">{errForm.compId}</div>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="deptName" className='mb-1 font-Poppins'>Department Name </label>
+                                        <input type="text" name='deptName' value={formData.compName} onChange={handleChange} placeholder='Type here company name' className='p-2 font-Poppins form-control' />
+                                        <div className="text-red-700">{errForm.compName}</div>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="jobRole" className='font-Poppins form-label mb-2'>Job Role</label>
+                                        <input type='text' name="jobRole" value={formData.foundyear} onChange={handleChange} placeholder="Type here founded year" className="p-2 form-control" />
+                                        <div className="text-red-700">{errForm.foundyear}</div>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="deprtEmail" className='font-Poppins form-label mb-2'>Department Email</label>
+                                        <input type='email' name="deprtEmail" value={formData.compWebsite} onChange={handleChange} placeholder="Type here company website" className="p-2 form-control" />
+                                        <div className="text-red-700">{errForm.compWebsite}</div>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="deprtStatus" className='font-Poppins form-label mb-1'> Department Status:</label>
+                                        <select className='font-Poppins form-select' onChange={handleChange} name="deprtStatus">
+                                            <option selected>Choose...</option>
+                                            <option value="active">Active</option>
+                                            <option value="deactive">Deactive</option>
+                                        </select>
+                                        <div className="text-red-700">{errForm.deprtStatus}</div>
+                                    </div>
+                                    <div className="text-end">
+                                        <input type="submit" value="Submit" className='font-Poppins btn btn-success bg-slate-700 mt-2' />
+                                    </div>
 
-                    </form>
-                </div>
-                <div className="w-2/3 bg-white rounded p-4 relative h-[400px]">
-                    <div className="search">
-                        <form action={search}>
-                            <input name="myInput" placeholder="Search" className="my-1 p-1 form-control p-1" />
-                            {/* <button type="submit" className="border-gray-100 border-2 font-Poppins p-2 rounded  bg-green-500 hover:bg-green-300 ease-in delay-300">Search</button> */}
-                            <div className="text-end">
-                                <input type="submit" value="Search" className='font-Poppins btn btn-success bg-slate-700 ' />
+                                </form>
                             </div>
-                            <div className="content mt-3">
-                                <h3>Department</h3>
-                                <ul className="list-group list-group-flush">
-                                    <li className="list-group-item">An item</li>
-                                    <li className="list-group-item">A second item</li>
-                                    <li className="list-group-item">A third item</li>
-                                    <li className="list-group-item">A fourth item</li>
-                                    <li className="list-group-item">And a fifth one</li>
-                                </ul>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
+                        </div>
+                }
             </div>
-        </div>
+        </div >
 
     )
 }

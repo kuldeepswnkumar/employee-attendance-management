@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import Axios from '../../Axios'
+import toast from 'react-hot-toast'
 
 
 function ScheduleAdd() {
+
+    const navigate = useNavigate()
 
     const [errForm, setErrForm] = useState({})
     const [formData, setFormData] = useState({
@@ -58,7 +61,9 @@ function ScheduleAdd() {
     const SendFormData = () => {
         Axios.post('http://localhost:8000/api/user/addschedule', formData)
             .then((response) => {
-                console.log(response);
+                // console.log(response);
+                toast.success(response.data.message)
+                navigate('/leaves')
             }).catch((error) => {
                 console.log(error);
             })

@@ -27,25 +27,24 @@ function Navbar() {
     return (
         <div className="w-full bg-[#910A67] text-white p-2 border-neutral-600 border-2 flex justify-between">
             <div className="menu left-part">
-                <h5 className='border-2 inline-block p-1 rounded-lg font-Poppins'><FontAwesomeIcon icon={faBars} className='mx-1 mt-1 ' />Menu</h5>
+                {/* <h5 className='border-2 inline-block p-1 rounded-lg font-Poppins'><FontAwesomeIcon icon={faBars} className='mx-1 mt-1 ' />Menu</h5> */}
             </div>
             <div className="right-part p-1.5 mx-3 flex flex-end">
 
                 {/* Language */}
-                <div className="group top-5 mx-1">
+                {/* <div className="group top-5 mx-1">
                     <NavDropdown title="Language" id="dropdown-basic" className='nav-drop-down'>
                         <NavDropdown.Item className='mt-2'>English</NavDropdown.Item>
                         <NavDropdown.Item className='mt-2'>Hindi</NavDropdown.Item>
                         <NavDropdown.Item className='mt-2'>English</NavDropdown.Item>
                     </NavDropdown>
-                </div>
+                </div> */}
 
                 {/* QUick Access */}
                 <div className="group top-7 mx-2 text-cyan-50">
                     <NavDropdown title="Quick Access" id="" className='nav-drop-down'>
                         <NavDropdown.Item className='mt-2'><Link to="/company">Company</Link></NavDropdown.Item>
                         <NavDropdown.Item className='mt-2'> <Link to="/department">Department</Link></NavDropdown.Item>
-                        <NavDropdown.Item className='mt-2'><Link to="/jobtitle">Job Title</Link></NavDropdown.Item>
                     </NavDropdown>
 
                 </div>

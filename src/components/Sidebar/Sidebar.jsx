@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserFriends, faDashboard, faClipboard, faCalendarDay, faHouse } from '@fortawesome/free-solid-svg-icons'
+import { faUserFriends, faDashboard, faClipboard, faCalendarDay, faHouse, faTree } from '@fortawesome/free-solid-svg-icons'
 import { faHouseMedical, faReceipt, faUser } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
 import workday from '../img/Workday-Symbol.png'
@@ -77,15 +77,16 @@ function SideBar() {
                             isPending ? "pending" : isActive ? "active" : ""
                         }
                     >
-                        Companies
+                        COMPANIES
                     </NavLink></li>
-                    <li className='my-6 font-Poppins hover:underline'>
+                    <li className='my-6 font-Poppins hover:underline'><FontAwesomeIcon icon={faTree} className='mx-4' />
                         <NavLink
-                            to="/logout"
+                            to="/getdepartmentdata"
                             className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "active" : ""
                             }
                         >
+                            Department
                         </NavLink>
 
                     </li>

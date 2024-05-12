@@ -4,6 +4,7 @@ import { faPenToSquare, faTrash, } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ButtonReturn from '../Button/Button'
 import Axios from '../../Axios'
+import toast from 'react-hot-toast'
 
 const Attendance = () => {
 
@@ -14,6 +15,7 @@ const Attendance = () => {
             .then((response) => {
                 console.log(response.data.data);
                 setAdData(response.data.data)
+                toast.success(response.data.message)
             }).catch((error) => {
                 console.log(error);
             })

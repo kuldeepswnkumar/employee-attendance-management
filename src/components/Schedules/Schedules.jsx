@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import Axios from '../../Axios'
+import toast from 'react-hot-toast'
 const Schedules = () => {
 
     const [data, setData] = useState([])
@@ -13,6 +14,7 @@ const Schedules = () => {
             .then((response) => {
                 setData(response.data.data)
                 // console.log("response.data", response.data.data);
+                toast.success(response.data.message)
             }).catch((error) => {
                 console.log(error);
             })

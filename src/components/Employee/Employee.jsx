@@ -4,6 +4,7 @@ import { faAddressCard, faPenToSquare, faTrash } from '@fortawesome/free-solid-s
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ButtonReturn from '../Button/Button'
 import Axios from '../../Axios'
+import toast from 'react-hot-toast'
 
 
 
@@ -12,10 +13,10 @@ function Employee() {
 
     useEffect(() => {
         Axios.get('http://localhost:8000/api/user/viewdata')
-            .then((res) => {
+            .then((response) => {
                 // console.log("resp data", res.data.data);
-
-                setData(res.data.data.filter((val) => val.fname != undefined))
+                toast.success(response.data.message)
+                setData(response.data.data.filter((val) => val.fname != undefined))
                 // console.log("resp edata", edata);
             }).catch((err) => console.log(err))
         // setLoading(false);
