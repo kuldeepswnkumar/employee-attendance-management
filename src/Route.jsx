@@ -39,6 +39,8 @@ import LeaveDelete from './components/Leaves/LeaveDelete'
 import GetDepartmentData from './components/Department/GetDepartmentData'
 import DeleteDepartment from './components/Department/DeleteDepartment'
 import LeaveAdd from './components/EmployeeDashboard/Sidebar/LeaveAdd'
+import Employeeview from './components/EmployeeDashboard/Navber/QuickAccess/Employeeview'
+import Report from './components/EmployeeDashboard/Sidebar/Report'
 
 
 const router = createBrowserRouter([
@@ -212,6 +214,14 @@ const router = createBrowserRouter([
             {
                 path: '/empdashboard/addleave',
                 element: <LeaveAdd />
+            },
+            {
+                path: '/empdashboard/empview',
+                element: <Employeeview />
+            },
+            {
+                path: '/empdashboard/addreport',
+                element: <Report />
             },
         ]
     }

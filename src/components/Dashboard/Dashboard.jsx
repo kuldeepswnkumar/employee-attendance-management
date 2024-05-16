@@ -11,7 +11,7 @@ const Dashboard = () => {
         if (token) {
             navigate('/dashboard')
         } else {
-            navigate('/login')
+            navigate('/clock')
         }
     }, [])
     return (

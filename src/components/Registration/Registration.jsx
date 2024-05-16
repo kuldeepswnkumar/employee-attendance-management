@@ -1,10 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import ClockButton from '../Clock/ClockButton'
+import Axios from '../../Axios'
+import toast from 'react-hot-toast'
 
 
 
 
 const Registration = () => {
+
+    const [compData, setCompData] = useState([])
     const [errForm, setErrForm] = useState({})
     const [regForm, setRegForm] = useState({
         empId: '',
@@ -61,13 +66,23 @@ const Registration = () => {
         }))
     }
 
+    useEffect(() => {
+        Axios.get('http://localhost:8000/api/user/viewcompany')
+            .then((response) => {
+                // console.log(response.data);
+                setCompData(response.data.data)
+                toast.success(response.data.message)
+            }).catch((err) => {
+                console.log(err);
+            })
+    }, [])
+
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
         handleValidForm()
 
     }
-
 
     return (
         <div>
@@ -104,11 +119,15 @@ const Registration = () => {
                             <div className='text-red-600'>{errForm.accType}</div>
                         </div>
                         <div className="mb-2">
-                            <label htmlFor="role" className='font-Poppins form-label mb-2 '> Employee Role </label>
+                            <label htmlFor="role" className='font-Poppins form-label mb-2 '> Company </label>
                             <select className='font-Poppins form-select' onChange={handleFormData} name='empRole'>
                                 <option selected>Choose...</option>
-                                <option value="admin">Admin</option>
-                                <option value="manager">Manager</option>
+                                {
+                                    compData.map((val, i) => (
+                                        <option key={i}>{val.compName}</option>
+                                    ))
+                                }
+
                             </select>
                             <div className='text-red-600'>{errForm.empRole}</div>
 

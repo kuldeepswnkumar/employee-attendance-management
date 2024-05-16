@@ -18,7 +18,7 @@ function Navbar() {
         toast.success(response.data.data)
         localStorage.clear()
         setTimeout(() => {
-            navigate("/login");
+            navigate("/clock");
         }, 1000)
     }
     const myname = localStorage.getItem("name")
@@ -45,6 +45,7 @@ function Navbar() {
                     <NavDropdown title="Quick Access" id="" className='nav-drop-down'>
                         <NavDropdown.Item className='mt-2'><Link to="/company">Company</Link></NavDropdown.Item>
                         <NavDropdown.Item className='mt-2'> <Link to="/department">Department</Link></NavDropdown.Item>
+                        <NavDropdown.Item className='mt-2'> <Link to="/clock">Clock In/Out</Link></NavDropdown.Item>
                     </NavDropdown>
 
                 </div>

@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Axios from '../../Axios';
 import toast from 'react-hot-toast'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 function EmpRegistration() {
+
+    const navigate = useNavigate()
+    const [compData, setCompData] = useState([])
     const [errForm, setErrForm] = useState({})
     const [regForm, setRegForm] = useState({
         empId: '',
@@ -73,11 +77,23 @@ function EmpRegistration() {
             if (response.success) {
                 toast.success(response.message)
             }
+            setTimeout(() => {
+                navigate('/login')
+            }, 1000)
         } catch (error) {
             console.log("Api is not working", error);
         }
     }
 
+    useEffect(() => {
+        Axios.get('http://localhost:8000/api/user/viewcompany')
+            .then((response) => {
+                // console.log(response.data);
+                setCompData(response.data.data)
+            }).catch((err) => {
+                console.log(err);
+            })
+    }, [])
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -131,16 +147,20 @@ function EmpRegistration() {
                         </div>
                         <div className="mb-2">
                             <label htmlFor="accType" className='font-Poppins form-label mb-2 mr-2'> Choose Accout Type  </label>
-                            Employee <input className='ml-1 mr-2' type='radio' name="accType" onChange={handleFormData} checked={regForm.accType === 'employee'} selected value="employee" />
+                            Manager <input className='ml-1 mr-2' type='radio' name="accType" onChange={handleFormData} checked={regForm.accType === 'employee'} selected value="employee" />
                             Admin<input className='ml-1' type='radio' name="accType" onChange={handleFormData} checked={regForm.accType === 'admin'} value="admin" />
                             <div className='text-red-600'>{errForm.accType}</div>
                         </div>
                         <div className="mb-2">
-                            <label htmlFor="role" className='font-Poppins form-label mb-2 '> Employee Role </label>
+                            <label htmlFor="role" className='font-Poppins form-label mb-2 '> Company </label>
                             <select className='font-Poppins form-select' onChange={handleFormData} name='empRole'>
                                 <option selected>Choose...</option>
-                                <option value="admin">Admin</option>
-                                <option value="manager">Manager</option>
+                                {
+                                    compData.map((val, i) => (
+                                        <option key={i}>{val.compName}</option>
+                                    ))
+                                }
+
                             </select>
                             <div className='text-red-600'>{errForm.empRole}</div>
 

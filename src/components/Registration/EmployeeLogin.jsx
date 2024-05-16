@@ -4,6 +4,7 @@ import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 import { Link, useNavigate } from 'react-router-dom'
 import Axios from '../../Axios.js'
 import toast from 'react-hot-toast'
+import ClockButton from '../Clock/ClockButton.jsx'
 
 function EmployeeLogin() {
 
@@ -78,7 +79,9 @@ function EmployeeLogin() {
                         <div className="text-center my-4">
                             <input type="submit" value="Login" className='font-Poppins btn btn-primary w-[100%] mt-1 bg-slate-700' />
                         </div>
+                        <ClockButton />
                     </form>
+
                     {/* 
                     <div className="reg font-Poppins text-center">
                         <p>If you don't have accout

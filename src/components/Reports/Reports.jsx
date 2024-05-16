@@ -1,12 +1,61 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Axios from '../../Axios.js'
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const Reports = () => {
+
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        Axios.get('http://localhost:8000/api/user/getreportdata')
+            .then((response) => {
+                console.log(response.data.data);
+                setData(response.data.data)
+            }).catch((error) => {
+                console.log(error);
+            })
+    }, [])
+
     return (
         <div>
             <h1 className='border-2 border-gray-500 rounded m-3 p-2 inline-block font-Poppins uppercase'>Reports</h1>
             <div className="container">
                 <ul className="flex">
-                    <div className="w-3/4 mr-2">
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">empId</th>
+                                <th scope="col">Employee Name</th>
+                                <th scope="col">Report Name</th>
+                                <th scope="col">Report Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                data.map((curr, i) => {
+                                    return (
+                                        <tr key={i}>
+                                            <td>{curr.empId}</td>
+                                            <td>{curr.empName}</td>
+                                            <td>{curr.reportbox}</td>
+                                            <td>{curr.reportdate}</td>
+                                            <td>
+                                                <Link to={'/employeeview/' + curr._id}>
+                                                    <FontAwesomeIcon icon={faTrash} className='text-xl' /><input type="button" value="" className='m-1 ' />
+                                                </Link>
+                                            </td>
+
+                                        </tr>
+
+                                    )
+                                })
+                            }
+
+                        </tbody>
+                    </table>
+                    {/* <div className="w-3/4 mr-2">
                         <li className="list-group-item active" aria-current="true">Report Name</li>
                         <li className="list-group-item">Employee Attendance Report</li>
                         <li className="list-group-item">Employee Birthdays</li>
@@ -17,7 +66,7 @@ const Reports = () => {
                         <li className="list-group-item">March 05, 2024</li>
                         <li className="list-group-item">April 10, 2024</li>
                         <li className="list-group-item">June 20, 2024</li>
-                    </div>
+                    </div> */}
 
                 </ul>
             </div>

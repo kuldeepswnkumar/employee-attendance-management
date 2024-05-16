@@ -12,7 +12,7 @@ function Navigator() {
                 </div>
                 <ul className='flex p-2'>
                     <Link to="/emplogin" className='border-2 border-blue-700 p-2 mr-2 rounded-lg font-Poppins hover:bg-blue-700 hover:text-white'><li>Employee Login</li></Link>
-                    <Link to="/login?type=admin" className='border-2 border-blue-700 p-2 rounded-lg font-Poppins hover:bg-blue-700 hover:text-white' > <li>Admin Login</li></Link>
+                    <Link to="/login" className='border-2 border-blue-700 p-2 rounded-lg font-Poppins hover:bg-blue-700 hover:text-white' > <li>Admin Login</li></Link>
                 </ul>
             </div>
         </div>

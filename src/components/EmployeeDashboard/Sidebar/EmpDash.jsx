@@ -12,7 +12,7 @@ function EmpDash() {
     if (Toekn) {
         navigate('/empdashboard')
     } else {
-        navigate('/Emplogin')
+        navigate('/clock')
     }
     return (
         <div>

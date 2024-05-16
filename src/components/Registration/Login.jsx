@@ -5,6 +5,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import Axios from '../../Axios'
 import toast from 'react-hot-toast'
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
+import ClockButton from '../Clock/ClockButton'
 
 
 
@@ -86,7 +87,9 @@ const Login = () => {
 
         <div className='w-screen h-screen bg-gradient-to-r bg-[#b0efff] flex justify-center'>
 
+
             {
+
                 loading ? <ClimbingBoxLoader
                     color={'#d64036'}
                     loading={loading}
@@ -96,6 +99,7 @@ const Login = () => {
                     className='mt-60'
                 /> :
                     < div className="login m-auto items-center border-2 border-gray-500 w-[30%] bg-white rounded-lg p-4" >
+
                         <h1 className='text-center p-3 font-Poppins font-bold text-2xl'>Login</h1>
                         <form onSubmit={handleSubmit} autoComplete='off'>
 
@@ -115,15 +119,18 @@ const Login = () => {
                                     <Link to="/forget" className='text-blue-700 underline font-Poppins'> Forget Password!</Link>
                                 </p>
                             </div>
-                            <div className="text-center my-4">
+
+                            <div className="text-center my-3">
                                 <input type="submit" value="Login" className='font-Poppins btn btn-primary w-[100%] mt-1 bg-slate-700' />
                             </div>
+
                         </form>
+                        <ClockButton />
                         {
                             !isAdmin ?
-                                <div className="reg font-Poppins text-center">
+                                <div className="reg font-Poppins text-center mt-3">
                                     <p>If you don't have accout
-                                        <Link to="/empregistration" className='text-blue-600 underline font-Poppins'> Sign in</Link> here
+                                        <Link to="/empregistration" className='text-blue-600 underline font-Poppins'> Sign Up</Link> here
                                     </p>
                                 </div>
                                 : null

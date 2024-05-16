@@ -46,6 +46,14 @@ function EmpSidebar() {
                     >
                         MY SCHEDULES
                     </NavLink></li>
+                    <li className='my-6 font-Poppins hover:underline'><FontAwesomeIcon icon={faCalendarDay} className='mx-4' /><NavLink
+                        to="/empdashboard/addreport"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "active" : ""
+                        }
+                    >
+                        REPORTS
+                    </NavLink></li>
 
                 </ul>
             </div>

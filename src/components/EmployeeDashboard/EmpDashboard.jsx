@@ -10,7 +10,7 @@ function EmpDashboard() {
             <div>
                 <div className="flex h-screen">
                     <EmpSidebar />
-                    <div className="w-4/5 bg-[#c7feff]">
+                    <div className="w-4/5 bg-[rgb(208,197,255)]">
                         <EmpNavber />
                         <Outlet />
                     </div>
