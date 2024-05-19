@@ -57,7 +57,7 @@ function EmployeeLogin() {
 
     return (
         <div>
-            <div className='w-screen h-screen bg-gradient-to-r bg-[#b0efff] flex'>
+            <div className='w-screen h-screen bg-gradient-to-r bg-[rgb(1,22,80) ] flex'>
                 <div className="login m-auto items-center border-2 border-gray-500 w-[30%] bg-white rounded-lg p-4">
                     <h1 className='text-center p-3 font-Poppins font-bold text-2xl'>Login</h1>
                     <form action="#" onSubmit={handleSubmit} autoComplete='off'>

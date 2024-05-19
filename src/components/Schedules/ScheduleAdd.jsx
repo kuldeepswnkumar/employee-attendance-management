@@ -12,6 +12,7 @@ function ScheduleAdd() {
 
     const [errForm, setErrForm] = useState({})
     const [formData, setFormData] = useState({
+        empId: '',
         strTime: '',
         etime: '',
         hours: '',
@@ -24,6 +25,9 @@ function ScheduleAdd() {
     const validationForm = () => {
         let err = {}
 
+        if (formData.empId === '') {
+            err.empId = 'Id is required!'
+        }
         if (formData.strTime === '') {
             err.strTime = 'Start time required!'
         }
@@ -63,7 +67,7 @@ function ScheduleAdd() {
             .then((response) => {
                 // console.log(response);
                 toast.success(response.data.message)
-                navigate('/leaves')
+                navigate('/schedules')
             }).catch((error) => {
                 console.log(error);
             })
@@ -91,10 +95,10 @@ function ScheduleAdd() {
                 <div className="p-3 border-2 mt-2">
                     <div className=" bg-white p-3 mx-4 rounded h-auto">
                         <form className="font-Poppins" onSubmit={handleSubmit}>
-                            {/* <div className="mb-3">
+                            <div className="mb-3">
                                 <label htmlFor="empId" className='mb-1 font-Poppins'> ID</label>
                                 <input type="text" name='empId' onChange={handleOnChange} placeholder='Type your Employee Id' className='font-Poppins form-control' />
-                            </div> */}
+                            </div>
                             <div className="mb-3 row">
                                 <div className="col">
                                     <label htmlFor="strTime" className='font-Poppins form-label mb-2'>

@@ -53,20 +53,20 @@ function UpdateClock() {
 
     const sendDataform = () => {
         try {
-            const response = Axios.put(`http://localhost:8000/api/user/updateattendance`, formData)
-            console.log("REsp", response);
-
-            if (toast.success || toast.error) {
-                return (toast.success(response.message) || toast.error(response.message))
-            }
-            setLoading(true)
-            setTimeout(() => {
-                setLoading(false)
-                setTimeout(() => {
-                    navigate("/attendance")
-                }, 2000)
-            }, 1000)
-
+            Axios.put(`http://localhost:8000/api/user/updateattendance`, formData)
+                .then((response) => {
+                    console.log("response", response.data);
+                    toast.success(response.data.message)
+                    setLoading(true)
+                    setTimeout(() => {
+                        setLoading(false)
+                        setTimeout(() => {
+                            navigate("/clock")
+                        }, 2000)
+                    }, 1000)
+                }).catch((error) => {
+                    console.log(error);
+                })
         } catch (error) {
             console.log(error);
         }
@@ -88,7 +88,7 @@ function UpdateClock() {
                         size={30}
                         aria-label="Loading Spinner"
                         data-testid="loader"
-                        className='mt-60 ml-[700px]'
+                        className='mt-60 ml-[700px] bg-white'
                     />
 
                         :

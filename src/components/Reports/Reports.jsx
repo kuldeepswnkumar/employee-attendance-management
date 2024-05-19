@@ -6,6 +6,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const Reports = () => {
 
+    const [searchData, setSearchData] = useState([])
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -13,15 +14,27 @@ const Reports = () => {
             .then((response) => {
                 console.log(response.data.data);
                 setData(response.data.data)
+                setSearchData(response.data.data)
             }).catch((error) => {
                 console.log(error);
             })
     }, [])
 
+    const handlerfilter = (value) => {
+        const res = searchData.filter(f => f.empName.toLowerCase().includes(value))
+        setData(res)
+    }
+
     return (
         <div>
             <h1 className='border-2 border-gray-500 rounded m-3 p-2 inline-block font-Poppins uppercase'>Reports</h1>
             <div className="container">
+                <div className="input-group flex  justify-end mb-3">
+                    <div className="form-outline flex mr-5" data-mdb-input-init>
+                        <label className="form-label mr-2 text-lg" htmlFor="form1">Search</label>
+                        <input type="search" onChange={(e) => handlerfilter(e.target.value)} className="form-control w-60" placeholder='Search here' />
+                    </div>
+                </div>
                 <ul className="flex">
                     <table className="table">
                         <thead>

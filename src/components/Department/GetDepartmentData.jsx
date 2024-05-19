@@ -21,9 +21,21 @@ function GetDepartmentData() {
             })
     }, [])
 
+    const handlerfilter = (value) => {
+        const res = data.filter(f => f.deptName.toLowerCase().includes(value))
+        setData(res)
+    }
+
     return (
         <div>
             <div className='p-5'>
+                <h1 className='border-2 border-gray-500 rounded mb-3 p-2 inline-block font-Poppins uppercase'>DEPARTMENT</h1>
+                <div className="input-group flex  justify-end mb-3">
+                    <div className="form-outline flex mr-2" data-mdb-input-init>
+                        <label className="form-label mr-2 text-lg" htmlFor="form1">Search</label>
+                        <input type="search" onChange={(e) => handlerfilter(e.target.value)} className="form-control w-60" placeholder='Search here' />
+                    </div>
+                </div>
                 <table className="table">
                     <thead>
                         <tr>

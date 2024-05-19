@@ -78,7 +78,7 @@ const Clock = () => {
 
     return (
         <>
-            <div className='w-screen h-screen bg-slate-800'>
+            <div className='w-screen h-screen bg-[#003C43]'>
                 <Navigator />
                 {
 

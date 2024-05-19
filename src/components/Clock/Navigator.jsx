@@ -6,7 +6,7 @@ import logo from '../img/logo2.png'
 function Navigator() {
     return (
         <div>
-            <div className="header w-full bg-slate-200 p-3 flex justify-between">
+            <div className="header w-full bg-[#98ABEE] p-3 flex justify-between">
                 <div className="logo ml-3">
                     <img src={logo} alt="" className='w-[55px]' />
                 </div>

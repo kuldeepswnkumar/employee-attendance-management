@@ -1,92 +1,53 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faRandom } from '@fortawesome/free-solid-svg-icons'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import Axios from '../../Axios'
 import toast from 'react-hot-toast'
 
-function AddLeave() {
+function UpdateLeave() {
+    const { id } = useParams()
+
     const navigate = useNavigate()
+    const [formData, setformData] = useState([])
 
-    const [errForm, setErrForm] = useState({})
-    const [formData, setFormData] = useState({
-        empId: '',
-        decription: '',
-        leavefrom: '',
-        leaveto: '',
-        returndate: '',
-        leaveStatus: ''
-    })
+    useEffect(() => {
+        Axios.get(`http://localhost:8000/api/user/updateleave/${id}`)
+            .then((response) => {
+                // console.log('response.data.data', response.data.data);
+                setformData(response.data.data)
+                // toast.success(response.data.message)
+            }).catch((err) => {
+                console.log(err);
+            })
+    }, [])
 
-    const validationForm = () => {
-        const err = {}
-        if (formData.empId === '') {
-            err.empId = 'Id is required!'
-        }
-        if (formData.decription === '') {
-            err.decription = 'Desription is required!'
-        }
-        if (formData.leavefrom === '') {
-            err.leavefrom = 'Leave From is required!'
-        }
-        if (formData.leaveto === '') {
-            err.leaveto = 'Leave to is required!'
-        }
-        if (formData.returndate === '') {
-            err.returndate = 'Return Date is required!'
-        }
-        if (formData.leaveStatus === '') {
-            err.leaveStatus = 'Leave Status is required!'
-        }
-
-        setErrForm({ ...err })
-        return false
-    }
 
     const handleOnChange = (e) => {
-        // console.log(e);
-        setFormData(() => ({
+        setformData(() => ({
             ...formData,
             [e.target.name]: e.target.value
         }))
     }
-    // console.log(handleOnChange);
 
 
-    const SendLeaveData = () => {
-        Axios.post('http://localhost:8000/api/user/addleave', formData)
+
+    const handleUpdate = (e) => {
+        e.preventDefault()
+        Axios.put(`http://localhost:8000/api/user/updateleave/${id}`, formData)
             .then((response) => {
+                console.log(response);
+                // navigate('/leaves')
                 toast.success(response.data.message)
-                navigate('/leaves')
-                console.log("Lresponse", response);
+                setTimeout(() => {
+                    navigate("/leaves")
+                }, 1000)
             }).catch((error) => {
                 console.log(error);
             })
     }
 
-    const ClearFormData = () => {
-        const ClearData = {
-            empId: '',
-            decription: '',
-            leavefrom: '',
-            leaveto: '',
-            returndate: '',
-            leaveStatus: ''
-        }
-        setFormData(ClearData)
-
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        validationForm()
-        SendLeaveData()
-        ClearFormData()
-    }
-
-
     return (
-
         <div>
             <div className="w-[80%] m-auto">
                 <h1 className='border-2 border-gray-500 rounded m-2 p-2 inline-block font-Poppins'>Add Leave</h1>
@@ -97,36 +58,36 @@ function AddLeave() {
                 </div>
                 <div className="p-2 border-2 mt-2">
                     <div className=" bg-white p-3 mx-4 rounded h-auto">
-                        <form className="font-Poppins" onSubmit={handleSubmit}>
+                        <form className="font-Poppins" onSubmit={handleUpdate}>
                             <div className="mb-2 ">
                                 <label htmlFor="empId" className='font-Poppins form-label mb-2'>
                                     empId:</label>
                                 <input type='text' name="empId" placeholder="Enter Your Id" value={formData.empId} onChange={handleOnChange} className="p-1 form-control" />
-                                <div className="text-red-700">{errForm.empId}</div>
+
                             </div>
                             <div>
                                 <label htmlFor="decription" className='font-Poppins form-label'>
                                     Description:</label>
-                                <textarea name="decription" rows='2' cols='62' value={formData.decription} className='font-Poppins form-label border-2' onChange={handleOnChange}></textarea>
-                                <div className="text-red-700">{errForm.decription}</div>
+                                <textarea name="decription" rows='2' cols='62' value={formData.decription} onChange={handleOnChange} className='font-Poppins form-label border-2' ></textarea>
+
                             </div>
                             <div className="mb-2">
                                 <label htmlFor="leavefrom" className='font-Poppins form-label mb-2'>
                                     Leave From</label>
-                                <input type='date' name="leavefrom" placeholder="Enter Off Time" value={formData.leavefrom} onChange={handleOnChange} className="p-1 form-control" />
-                                <div className="text-red-700">{errForm.leavefrom}</div>
+                                <input type='date' name="leavefrom" placeholder="Enter Off Time" onChange={handleOnChange} value={formData.leavefrom} className="p-1 form-control" />
+
                             </div>
                             <div className="mb-2">
                                 <label htmlFor="leaveto" className='font-Poppins form-label mb-2'>
                                     Leave To</label>
                                 <input type='date' name="leaveto" placeholder="Enter Hours" value={formData.leaveto} onChange={handleOnChange} className="p-1 form-control" />
-                                <div className="text-red-700">{errForm.leaveto}</div>
+
                             </div>
                             <div className="mb-2">
                                 <label htmlFor="returndate" className='font-Poppins form-label mb-2'>
                                     Return Date</label>
                                 <input type='date' name="returndate" placeholder="Enter Hours" value={formData.returndate} onChange={handleOnChange} className="p-1 form-control" />
-                                <div className="text-red-700">{errForm.returndate}</div>
+
                             </div>
                             <div className="mb-2">
                                 <label htmlFor="status" className='font-Poppins form-label mb-1'> Leave Status:</label>
@@ -135,7 +96,7 @@ function AddLeave() {
                                     <option value="Approve">Approve</option>
                                     <option value="Pending">Pending</option>
                                 </select>
-                                <div className="text-red-700">{errForm.leaveStatus}</div>
+
                             </div>
                             <div className="text-end">
                                 <input type="submit" value="Submit" className='font-Poppins btn btn-success bg-slate-700' />
@@ -148,4 +109,4 @@ function AddLeave() {
     )
 }
 
-export default AddLeave
+export default UpdateLeave

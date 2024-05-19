@@ -42,7 +42,7 @@ function LeaveDelete() {
                     size={30}
                     aria-label="Loading Spinner"
                     data-testid="loader"
-                    className='mt-60 ml-[700px]'
+                    className='mt-60 ml-[500px]'
                 />
 
                     :

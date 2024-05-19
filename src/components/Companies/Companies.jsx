@@ -10,6 +10,7 @@ import { toast } from 'react-hot-toast'
 
 function Companies() {
 
+    const [searchData, setSearchData] = useState([])
     const [comData, setCompDAta] = useState([])
     const [show, setShow] = useState(false);
 
@@ -21,16 +22,28 @@ function Companies() {
             .then((response) => {
                 // console.log(response.data);
                 setCompDAta(response.data.data)
+                setSearchData(response.data.data)
                 toast.success(response.data.message)
             }).catch((err) => {
                 console.log(err);
             })
     }, [])
 
+    const handlerfilter = (value) => {
+        const res = searchData.filter(f => f.compName.toLowerCase().includes(value))
+        setCompDAta(res)
+    }
 
 
     return (
         <div className='p-5'>
+            <h1 className='border-2 border-gray-500 rounded mb-3 p-2 inline-block font-Poppins uppercase'>COMPANY</h1>
+            <div className="input-group flex  justify-end mb-3">
+                <div className="form-outline flex mr-5" data-mdb-input-init>
+                    <label className="form-label mr-2 text-lg" htmlFor="form1">Search</label>
+                    <input type="search" onChange={(e) => handlerfilter(e.target.value)} className="form-control w-60" placeholder='Search here' />
+                </div>
+            </div>
             <table className="table">
                 <thead>
                     <tr>

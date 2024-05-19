@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { faPenToSquare, faTrash, faFilePdf } from '@fortawesome/free-solid-svg-icons'
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
@@ -7,18 +7,27 @@ import Axios from '../../Axios'
 import toast from 'react-hot-toast'
 const Schedules = () => {
 
+    const [searchData, setSearchData] = useState([])
     const [data, setData] = useState([])
 
     useEffect(() => {
         Axios.get('http://localhost:8000/api/user/getscheduledata')
             .then((response) => {
                 setData(response.data.data)
+                setSearchData(response.data.data)
                 // console.log("response.data", response.data.data);
                 toast.success(response.data.message)
             }).catch((error) => {
                 console.log(error);
             })
     }, [])
+
+    const handlerfilter = (value) => {
+        const serach = searchData.filter(f =>
+            f.empName.toLowerCase().includes(value)
+        )
+        setData(serach)
+    }
     return (
         <div>
             <div>
@@ -31,6 +40,12 @@ const Schedules = () => {
                     <Link to="/scheduleadd">
                         <input type="button" value="Schedule Employee" className='font-Poppins btn btn-success bg-slate-700' />
                     </Link>
+                </div>
+                <div className="input-group flex justify-end mt-3">
+                    <div className="form-outline flex mr-5" data-mdb-input-init>
+                        <label className="form-label mr-2 text-lg" htmlFor="form1">Search</label>
+                        <input type="search" onChange={(e) => handlerfilter(e.target.value)} className="form-control w-60" placeholder='Search here' />
+                    </div>
                 </div>
                 <div className="emplist p-3">
                     <table className="table">

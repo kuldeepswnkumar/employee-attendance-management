@@ -85,7 +85,7 @@ const Login = () => {
 
     return (
 
-        <div className='w-screen h-screen bg-gradient-to-r bg-[#b0efff] flex justify-center'>
+        <div className='w-screen h-screen bg-gradient-to-r bg-[rgb(1,22,80)] flex justify-center'>
 
 
             {

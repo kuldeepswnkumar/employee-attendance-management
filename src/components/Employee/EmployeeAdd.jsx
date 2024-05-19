@@ -137,16 +137,12 @@ const EmployeeAdd = () => {
             })
             console.log("My Form", form);
             console.log(response.data);
-            toast("You are Registered!!")
-            // if (response.success) {
-            //     toast.success(response.message)
-            // }
             setLoading(true)
             setTimeout(() => {
                 setTimeout(() => {
                     setLoading(false)
                 }, 1000)
-                navigate("/dashboard")
+                navigate('/employes')
             }, 2000)
 
         } catch (error) {
@@ -209,8 +205,6 @@ const EmployeeAdd = () => {
             .then((response) => {
                 console.log(response.data.data);
                 setDepartData(response.data.data)
-                // toast.success(response.data.message)
-                // navigate('/getdepartmentdata')
             }).catch((error) => {
                 console.log(error);
             })
@@ -225,7 +219,7 @@ const EmployeeAdd = () => {
                     size={30}
                     aria-label="Loading Spinner"
                     data-testid="loader"
-                    className='mt-60 ml-[300px]'
+                    className='mt-60 ml-[700px]'
                 /> :
 
                     <div className='p-3 w-[80%] m-auto'>
@@ -377,7 +371,6 @@ const EmployeeAdd = () => {
                                             <label htmlFor="emptype" className='font-Poppins form-label mb-1'> Employee Type: </label>
                                             <select className='font-Poppins form-select' onChange={handleFormData} value={formData.empType} name="empType">
                                                 <option selected>Choose...</option>
-                                                <option value="Admin">Admin</option>
                                                 <option value="Manager">Manager</option>
                                                 <option value="Employee">Employee</option>
                                             </select>

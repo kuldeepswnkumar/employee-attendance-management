@@ -5,10 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ButtonReturn from '../Button/Button'
 import Axios from '../../Axios'
 import toast from 'react-hot-toast'
+import ReactPaginate from 'react-paginate';
 
 
 
 function Employee() {
+    // const [pageData, setPageData] = useState([])
+    const [filterData, setFilterData] = useState([])
     const [edata, setData] = useState([])
 
     useEffect(() => {
@@ -16,12 +19,42 @@ function Employee() {
             .then((response) => {
                 // console.log("resp data", res.data.data);
                 toast.success(response.data.message)
-                setData(response.data.data.filter((val) => val.fname != undefined))
-                // console.log("resp edata", edata);
+                setFilterData(response.data.data)
+                setData(response.data.data)
             }).catch((err) => console.log(err))
         // setLoading(false);
     }, [])
-    // console.log("resp edata", edata);
+
+
+    // const fetchData = (currentPage) => {
+    //     Axios.get(`http://localhost:8000/api/user/viewdata?_page=${currentPage}&_limit=3`)
+    //         .then((response) => {
+    //             // console.log("resp data", res.data.data);
+    //             toast.success(response.data.message)
+    //             setPageData(response.data.data)
+    //         }).catch((err) => console.log(err))
+    // }
+
+
+    // setLoading(false);
+
+
+    const handlerfilter = (value) => {
+        const res = filterData.filter(f =>
+            f.fname.toLowerCase().includes(value) ||
+            f.company.toLowerCase().includes(value)
+        )
+        console.log(res);
+        setData(res)
+    }
+
+    // const handlePageClick = async (data) => {
+    //     console.log();
+    //     let currentPage = data.selected + 1
+    //     let paginateData = fetchData(currentPage)
+    //     setPageData(paginateData)
+    // }
+
     return (
         <div>
             <h1 className='border-2 border-gray-500 rounded m-3 p-2 inline-block font-Poppins uppercase'>Employees</h1>
@@ -30,7 +63,12 @@ function Employee() {
                 <Link to="/addemployee">
                     <input type="button" value="Add Employee" className='font-Poppins btn btn-success bg-slate-700' />
                 </Link>
-
+            </div>
+            <div className="input-group flex  justify-end ">
+                <div className="form-outline flex mr-5" data-mdb-input-init>
+                    <label className="form-label mr-2 text-lg" htmlFor="form1">Search</label>
+                    <input type="search" onChange={(e) => handlerfilter(e.target.value)} className="form-control w-60" placeholder='Search here' />
+                </div>
             </div>
             <div className="emplist p-3">
                 <table className="table">
@@ -80,6 +118,25 @@ function Employee() {
                     </tbody>
                 </table>
             </div>
+            <ReactPaginate
+                previousLabel={`Previous`}
+                nextLabel={' Next'}
+                breakLabel={'....'}
+                pageCount={10}
+                marginPagesDisplayed={3}
+                pageRangeDisplayed={3}
+                // onPageChange={handlePageClick}
+                containerClassName={'pagination justify-content-end mr-3'}
+                pageClassName={'page-item'}
+                pageLinkClassName={'page-link'}
+                previousClassName={'page-item'}
+                previousLinkClassName={'page-link'}
+                nextClassName={'page-item'}
+                nextLinkClassName={'page-link'}
+                breakClassName={'page-item'}
+                breakLinkClassName={'page-link'}
+                activeClassName={'active'}
+            />
         </div >
 
     )

@@ -8,7 +8,7 @@ const Layout = () => {
         <div>
             <div className="flex h-screen">
                 <SideBar />
-                <div className="w-4/5 bg-[#c7e8ff]">
+                <div className="w-4/5 bg-[#fff]">
                     <Navbar />
                     <Outlet />
                 </div>

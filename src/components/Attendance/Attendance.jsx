@@ -8,6 +8,7 @@ import toast from 'react-hot-toast'
 
 const Attendance = () => {
 
+    const [filterData, setFilterData] = useState([])
     const [adData, setAdData] = useState([])
 
     useEffect(() => {
@@ -15,17 +16,29 @@ const Attendance = () => {
             .then((response) => {
                 console.log(response.data.data);
                 setAdData(response.data.data)
+                setFilterData(response.data.data)
                 toast.success(response.data.message)
             }).catch((error) => {
                 console.log(error);
             })
     }, [])
 
+    const handlerfilter = (value) => {
+        const res = filterData.filter(f => f.EmployeeName.toLowerCase().includes(value))
+        setAdData(res)
+    }
+
     return (
         <div>
             <h1 className='border-2 border-gray-500 rounded m-2 p-2 inline-block font-Poppins uppercase'>Attendance</h1>
             <div className='flex flex-col'>
                 <ButtonReturn />
+                <div className="input-group flex justify-end mt-2">
+                    <div className="form-outline flex mr-5" data-mdb-input-init>
+                        <label className="form-label mr-2 text-lg" htmlFor="form1">Search</label>
+                        <input type="search" onChange={(e) => handlerfilter(e.target.value)} className="form-control w-60" placeholder='Search here' />
+                    </div>
+                </div>
                 <div className="emplist p-3">
                     <table className="table">
                         <thead>
