@@ -11,6 +11,7 @@ const Dashboard = () => {
     const [attData, setAttData] = useState([])
     const [leaveData, setLeaveData] = useState([])
     const navigate = useNavigate()
+
     useEffect(() => {
         const token = localStorage.getItem("AccessToken")
         if (token) {
@@ -39,6 +40,7 @@ const Dashboard = () => {
                 console.log(error);
             })
     }, [])
+
 
 
     useEffect(() => {

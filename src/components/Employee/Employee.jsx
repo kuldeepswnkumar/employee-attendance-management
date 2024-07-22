@@ -26,17 +26,7 @@ function Employee() {
     }, [])
 
 
-    // const fetchData = (currentPage) => {
-    //     Axios.get(`http://localhost:8000/api/user/viewdata?_page=${currentPage}&_limit=3`)
-    //         .then((response) => {
-    //             // console.log("resp data", res.data.data);
-    //             toast.success(response.data.message)
-    //             setPageData(response.data.data)
-    //         }).catch((err) => console.log(err))
-    // }
 
-
-    // setLoading(false);
 
 
     const handlerfilter = (value) => {

@@ -57,7 +57,6 @@ function MyAttendance() {
                                         )
                                     })
                                 }
-
                             </tbody>
                         </table>
                     </div>

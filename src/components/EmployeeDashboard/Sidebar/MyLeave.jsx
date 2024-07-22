@@ -57,9 +57,9 @@ function MyLeave() {
                                             <td>{curr.returndate}</td>
                                             <td>{curr.leaveStatus}</td>
                                             <td>
-                                                <Link to={'/deleteleave/' + curr._id} >
+                                                {/* <Link to={'/deleteleave/' + curr._id} >
                                                     <FontAwesomeIcon icon={faTrash} className='text-xl' /><input type="button" value="" className='m-1' />
-                                                </Link>
+                                                </Link> */}
                                             </td>
                                         </tr>
                                     )

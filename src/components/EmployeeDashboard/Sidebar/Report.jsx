@@ -63,16 +63,6 @@ function Report() {
         <div>
             <div className="w-[80%] m-auto">
                 <h1 className='border-2 border-gray-500 rounded m-2 p-2 inline-block font-Poppins'>Reports</h1>
-                {/* <ButtonReturn /> */}
-                {/* {
-                    loading ? <ClimbingBoxLoader
-                        color={'#d64036'}
-                        loading={loading}
-                        size={30}
-                        aria-label="Loading Spinner"
-                        data-testid="loader"
-                        className='mt-60 ml-[500px]'
-                    /> : */}
 
                 <div className="p-1 mt-3">
                     <div className=" bg-white p-4 mx-4 rounded h-auto">
@@ -99,7 +89,6 @@ function Report() {
                         </form>
                     </div>
                 </div>
-                {/* } */}
             </div>
         </div>
     )

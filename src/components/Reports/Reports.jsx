@@ -58,6 +58,7 @@ const Reports = () => {
                                                 <Link to={'/employeeview/' + curr._id}>
                                                     <FontAwesomeIcon icon={faTrash} className='text-xl' /><input type="button" value="" className='m-1 ' />
                                                 </Link>
+
                                             </td>
 
                                         </tr>

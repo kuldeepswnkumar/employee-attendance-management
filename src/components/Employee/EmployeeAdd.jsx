@@ -121,7 +121,7 @@ const EmployeeAdd = () => {
         }
 
     }
-
+    console.log(formData);
 
     const SendEmpData = () => {
         try {

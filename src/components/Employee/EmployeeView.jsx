@@ -17,9 +17,9 @@ function EmployeeView() {
     useEffect(() => {
         try {
             Axios.get(`http://localhost:8000/api/user/singleviewdata/${id}`)
-                .then((res) => {
+                .then((response) => {
                     // console.log("Single", res.data.data);
-                    setData(res.data.data)
+                    setData(response.data.data)
                 }).catch((err) => console.error(err))
         } catch (error) {
             console.log(error);

@@ -43,6 +43,7 @@ const Attendance = () => {
                     <table className="table">
                         <thead>
                             <tr>
+                                <th scope="col">Id</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">InputOutTime</th>
                                 <th scope="col">Employee</th>
@@ -57,6 +58,7 @@ const Attendance = () => {
                                 adData.map((curr, i) => {
                                     return (
                                         <tr key={i}>
+                                            <td>{curr.empId}</td>
                                             <td>{curr.fullDate}</td>
                                             <th scope="row">{curr.inoutTime}</th>
                                             <td>{curr.EmployeeName}</td>

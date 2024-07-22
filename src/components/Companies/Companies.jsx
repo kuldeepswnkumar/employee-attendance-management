@@ -12,10 +12,7 @@ function Companies() {
 
     const [searchData, setSearchData] = useState([])
     const [comData, setCompDAta] = useState([])
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    // const [show, setShow] = useState(false);
 
     useEffect(() => {
         Axios.get('http://localhost:8000/api/user/viewcompany')
@@ -67,9 +64,9 @@ function Companies() {
                                     <td className='text-center'>{curr.compLocation}</td>
                                     <td className='text-center'>
                                         <Link to={'/deletecompany/' + curr._id}>
-                                            <FontAwesomeIcon icon={faTrash} className='text-xl' /><input type="button" value="" className='m-1' onClick={handleShow} />
+                                            <FontAwesomeIcon icon={faTrash} className='text-xl' /><input type="button" value="" className='m-1' />
                                         </Link>
-                                        {/* <Button variant="primary" onClick={handleShow} className='text-black'>
+                                        {/* <Button variant="primary"  className='text-black'>
                                             Delete
                                         </Button> */}
 
@@ -81,7 +78,7 @@ function Companies() {
                 }
 
             </table>
-            <Modal show={show} onHide={handleClose}>
+            {/* <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
@@ -94,7 +91,7 @@ function Companies() {
                         Save Changes
                     </Button>
                 </Modal.Footer>
-            </Modal>
+            </Modal> */}
 
         </div>
 

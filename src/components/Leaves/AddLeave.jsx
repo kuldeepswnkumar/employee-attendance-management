@@ -128,7 +128,7 @@ function AddLeave() {
                                 <input type='date' name="returndate" placeholder="Enter Hours" value={formData.returndate} onChange={handleOnChange} className="p-1 form-control" />
                                 <div className="text-red-700">{errForm.returndate}</div>
                             </div>
-                            <div className="mb-2">
+                            <div className="mb-2 hidden">
                                 <label htmlFor="status" className='font-Poppins form-label mb-1'> Leave Status:</label>
                                 <select className='font-Poppins form-select' value={formData.leaveStatus} onChange={handleOnChange} name="leaveStatus">
                                     <option selected>Choose...</option>

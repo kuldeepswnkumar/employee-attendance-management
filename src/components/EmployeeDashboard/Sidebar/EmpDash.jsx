@@ -23,8 +23,8 @@ function EmpDash() {
                     <div className="right-part ml-24">
                         <h2 className='p-2 text-zinc-100 font-weight: 500 font-Poppins'>ATTENDANCE(Curr Month)</h2>
                         <div className='border-b-2 bg-cyan-300 m-1'></div>
-                        <p id='para1' className='font-Poppins text-[15px] text-zinc-100 ml-3'>Late Arrivals<span className='ml-36'>0</span></p>
-                        <p id='para2' className='font-Poppins text-[15px] text-zinc-100 ml-3'>Early Departure <span className='ml-28'>0</span></p>
+                        <p id='para1' className='font-Poppins text-[15px] text-zinc-100 ml-3'>Late Arrivals<span className='ml-36'>4</span></p>
+                        <p id='para2' className='font-Poppins text-[15px] text-zinc-100 ml-3'>Early Departure <span className='ml-28'>1</span></p>
                     </div>
                 </div>
                 <div id="attendance" className='w-[30%] h-28 bg-yellow-600 m-3'>
@@ -32,8 +32,8 @@ function EmpDash() {
                     <div className="right-part ml-24">
                         <h2 className='p-2 text-zinc-100 font-weight: 500 font-Poppins'>PRESENT SCHEDULE</h2>
                         <div className='border-b-2 bg-cyan-300 m-1'></div>
-                        <p id='para1' className='font-Poppins text-[15px] text-zinc-100 ml-3'>Time <span className='ml-48'>0</span></p>
-                        <p id='para2' className='font-Poppins text-[15px] text-zinc-100 ml-3'>Rest Days <span className='ml-40'>0</span></p>
+                        <p id='para1' className='font-Poppins text-[15px] text-zinc-100 ml-3'>Time <span className='ml-20'>9:00AM to 5:00PM</span></p>
+                        <p id='para2' className='font-Poppins text-[15px] text-zinc-100 ml-3'>Rest Days <span className='ml-24'>Sat & Sun</span></p>
                     </div>
                 </div>
                 <div id="leaves" className='w-[30%] h-28 bg-green-600 m-3'>
@@ -41,8 +41,8 @@ function EmpDash() {
                     <div className="right-part ml-24">
                         <h2 className='p-2 text-zinc-100 font-weight: 500 font-Poppins'>Leaves On Absence</h2>
                         <div className='border-b-2 bg-cyan-300 m-1'></div>
-                        <p id='para1' className='font-Poppins text-[15px] text-zinc-100 ml-4'>Approved <span className='ml-36'>0</span></p>
-                        <p id='para2' className='font-Poppins text-[15px] text-zinc-100 ml-4'>Pending <span className='ml-40'>0</span></p>
+                        <p id='para1' className='font-Poppins text-[15px] text-zinc-100 ml-4'>Approved <span className='ml-36'>3</span></p>
+                        <p id='para2' className='font-Poppins text-[15px] text-zinc-100 ml-4'>Pending <span className='ml-40'>2</span></p>
                     </div>
                 </div>
             </div>
